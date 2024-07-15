@@ -9,6 +9,7 @@ extension ContentView {
     @Observable class ViewModel {
         var players: [Player] = []
         
+        // Fetches players active in the current MLB Season. Year in link is one year ahead
         func fetchPlayers() {
             guard let url = URL(string: "https://statsapi.mlb.com/api/v1/sports/1/players?season=2025") else { return }
             
@@ -21,7 +22,7 @@ extension ContentView {
                             self.players = response.people
                         }
                     } catch {
-                        print("Error decoding JSON: \(error)")
+                        print("Error decoding JSON: \(error.localizedDescription)")
                     }
                 }
             }.resume()
