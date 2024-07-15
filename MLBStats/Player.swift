@@ -5,7 +5,7 @@
 import Foundation
 
 // Provided by 'sports_players' endpoint
-// Comments use Shoehi Ohtani as an example instance of Player
+// Comments use Shohei Ohtani as an example instance of Player
 struct Player: Identifiable, Decodable {
     let id: Int                         // 660271
     let fullName: String                // "Shohei Ohtani"
