@@ -11,6 +11,8 @@
 		49DC63122C44950100A5C81A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DC63112C44950100A5C81A /* ContentView.swift */; };
 		49DC63142C44950200A5C81A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49DC63132C44950200A5C81A /* Assets.xcassets */; };
 		49DC63172C44950200A5C81A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49DC63162C44950200A5C81A /* Preview Assets.xcassets */; };
+		49DC631E2C44984200A5C81A /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DC631D2C44984200A5C81A /* ContentView-ViewModel.swift */; };
+		49DC63202C44987E00A5C81A /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DC631F2C44987E00A5C81A /* Player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		49DC63112C44950100A5C81A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		49DC63132C44950200A5C81A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49DC63162C44950200A5C81A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		49DC631D2C44984200A5C81A /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
+		49DC631F2C44987E00A5C81A /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				49DC630F2C44950100A5C81A /* MLBStatsApp.swift */,
 				49DC63112C44950100A5C81A /* ContentView.swift */,
+				49DC631D2C44984200A5C81A /* ContentView-ViewModel.swift */,
+				49DC631F2C44987E00A5C81A /* Player.swift */,
 				49DC63132C44950200A5C81A /* Assets.xcassets */,
 				49DC63152C44950200A5C81A /* Preview Content */,
 			);
@@ -137,7 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49DC63202C44987E00A5C81A /* Player.swift in Sources */,
 				49DC63122C44950100A5C81A /* ContentView.swift in Sources */,
+				49DC631E2C44984200A5C81A /* ContentView-ViewModel.swift in Sources */,
 				49DC63102C44950100A5C81A /* MLBStatsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
