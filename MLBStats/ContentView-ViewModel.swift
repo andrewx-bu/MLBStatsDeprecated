@@ -10,14 +10,14 @@ extension ContentView {
         var players: [Player] = []
         var teams: [Team] = []
         
-        func fetchData() {
+        func fetchAllData() {
             fetchTeams()
-            fetchSports_Players()
+            fetchPlayers()
         }
         
         // Fetches players active in the currents season. Year in link is one year ahead
         // URL: https://statsapi.mlb.com/api/{ver}/sports/{sportId}/players
-        func fetchSports_Players() {
+        func fetchPlayers() {
             guard let url = URL(string: "https://statsapi.mlb.com/api/v1/sports/1/players?season=2025") else {
                 print("Error loading sports_players URL")
                 return
@@ -60,5 +60,6 @@ extension ContentView {
         }
         
         // Future fetches
+        func fetch
     }
 }

@@ -10,11 +10,9 @@ struct Team: Identifiable, Decodable {
     let id: Int                     // 119
     let name: String                // Los Angeles Dodgers
     let link: String                // "/api/v1/teams/119"
-    let season: Int                 // 2024
     let venue: Venue
     let abbreviation: String        // "LAD"
     let league: League
-    let division: Division
     let shortName: String           // LA Dodgers
     
     struct Venue: Decodable {
@@ -27,12 +25,6 @@ struct Team: Identifiable, Decodable {
         let id: Int                 // 104
         let name: String            // "National League"
         let link: String            // "/api/v1/league/104"
-    }
-    
-    struct Division: Decodable {
-        let id: Int                 // 203
-        let name: String            // "National League West"
-        let link: String            // "/api/v1/divisions/203"
     }
 }
 
