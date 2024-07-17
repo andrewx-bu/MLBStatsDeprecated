@@ -5,7 +5,7 @@
 import Foundation
 
 // Provided by 'teams' endpoint
-// Comments use Los Angeles Dodgers as an example instance of Team
+// Comments use Los Angeles Dodgers as an example instance of a Team
 struct Team: Identifiable, Decodable {
     let id: Int                     // 119
     let name: String                // Los Angeles Dodgers
