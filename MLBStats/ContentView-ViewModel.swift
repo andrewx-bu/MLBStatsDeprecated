@@ -11,13 +11,14 @@ extension ContentView {
         var pitchers: [Pitcher] = []
         
         enum TimeFrame: String {
-            case L2Y = "11"
-            case LY = "10"
-            case L30 = "3"
+            case L2Y = "11" // Last 2 calendar years
+            case LY = "10"  // Last 1 calendar year
+            case L30 = "3"  // Last 30 days
         }
         
-        func fetchHitters(for teamID: Int? = nil, timeFrame: TimeFrame) {
-            var urlString = "https://www.fangraphs.com/api/leaders/major-league/data?pos=all&stats=bat&lg=all&qual=60&season=2024&month=\(timeFrame.rawValue)"
+        // Default PA: 60, 25 for L30
+        func fetchHitters(for teamID: Int? = nil, PA: Int, timeFrame: TimeFrame) {
+            var urlString = "https://www.fangraphs.com/api/leaders/major-league/data?pos=all&stats=bat&lg=all&qual=\(PA)&pageitems=999&rost=1&season=2024&month=\(timeFrame.rawValue)"
             if let teamID = teamID {
                 urlString += "&team=\(teamID)"
             }
@@ -40,8 +41,9 @@ extension ContentView {
             }.resume()
         }
         
-        func fetchPitchers(for teamID: Int? = nil, timeFrame: TimeFrame) {
-            var urlString = "https://www.fangraphs.com/api/leaders/major-league/data?pos=all&stats=pit&lg=all&qual=60&season=2024&month=\(timeFrame.rawValue)"
+        // Default IP: 25, 10 for L30
+        func fetchPitchers(for teamID: Int? = nil, IP: Int, timeFrame: TimeFrame) {
+            var urlString = "https://www.fangraphs.com/api/leaders/major-league/data?pos=all&stats=pit&lg=all&qual=\(IP)&pageitems=999&rost=1&season=2024&month=\(timeFrame.rawValue)"
             if let teamID = teamID {
                 urlString += "&team=\(teamID)"
             }

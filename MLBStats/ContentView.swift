@@ -22,7 +22,7 @@ struct ContentView: View {
                 }
                 .navigationTitle("MLB Hitters")
                 .onAppear {
-                    viewModel.fetchHitters(timeFrame: .L30)
+                    viewModel.fetchHitters(PA: 25, timeFrame: .L30)
                 }
             } else {
                 List(viewModel.pitchers, id: \.self) { pitcher in
@@ -33,7 +33,7 @@ struct ContentView: View {
                 }
                 .navigationTitle("MLB Pitchers")
                 .onAppear {
-                    viewModel.fetchPitchers(timeFrame: .L2Y)
+                    viewModel.fetchPitchers(IP: 25, timeFrame: .L2Y)
                 }
             }
         }
