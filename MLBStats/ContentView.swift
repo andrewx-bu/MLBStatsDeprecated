@@ -9,15 +9,15 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            List(viewModel.players) { player in
+            List(viewModel.players, id: \.self) { player in
                 VStack(alignment: .leading) {
-                    Text(player.name)
+                    Text(player.Name)
                         .font(.headline)
                 }
             }
             .navigationTitle("MLB Players")
             .onAppear {
-                viewModel.fetchPlayers()
+                viewModel.fetchPlayers(timeFrame: ContentView.ViewModel.TimeFrame.L30)
             }
         }
     }

@@ -4,14 +4,9 @@
 
 import Foundation
 
-struct Player: Identifiable, Decodable {
-    let id: Int
-    let name: String
-    
-    enum CodingKeys: String, CodingKey {
-        case id = "xMLBAMID"
-        case name = "PlayerName"
-    }
+struct Player: Hashable, Decodable {
+    let playerid: Int
+    let Name: String
 }
 
 struct PlayersResponse: Decodable {
