@@ -1,14 +1,14 @@
-//  Player.swift
+//  Pitcher.swift
 //  MLBStats
 //  Created by Andrew Xin on 7/20/24.
 
 import Foundation
 
-struct Player: Hashable, Decodable {
+struct Pitcher: Hashable, Decodable {
     let playerid: Int
     let Name: String
 }
 
-struct PlayersResponse: Decodable {
-    let data: [Player]
+struct PitchersResponse: Decodable {
+    let data: [Pitcher]
 }

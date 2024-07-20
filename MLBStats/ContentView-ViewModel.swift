@@ -7,7 +7,8 @@ import SwiftUI
 
 extension ContentView {
     @Observable class ViewModel {
-        var players: [Player] = []
+        var hitters: [Hitter] = []
+        var pitchers: [Pitcher] = []
         
         enum TimeFrame: String {
             case L2Y = "11"
@@ -15,7 +16,7 @@ extension ContentView {
             case L30 = "3"
         }
         
-        func fetchPlayers(for teamID: Int? = nil, timeFrame: TimeFrame) {
+        func fetchHitters(for teamID: Int? = nil, timeFrame: TimeFrame) {
             var urlString = "https://www.fangraphs.com/api/leaders/major-league/data?pos=all&stats=bat&lg=all&qual=60&season=2024&month=\(timeFrame.rawValue)"
             if let teamID = teamID {
                 urlString += "&team=\(teamID)"
@@ -28,9 +29,33 @@ extension ContentView {
                 if let data = data {
                     do {
                         let decoder = JSONDecoder()
-                        let response = try decoder.decode(PlayersResponse.self, from: data)
+                        let response = try decoder.decode(HittersResponse.self, from: data)
                         DispatchQueue.main.async {
-                            self.players = response.data
+                            self.hitters = response.data
+                        }
+                    } catch {
+                        print("Error decoding players JSON: \(error.localizedDescription)")
+                    }
+                }
+            }.resume()
+        }
+        
+        func fetchPitchers(for teamID: Int? = nil, timeFrame: TimeFrame) {
+            var urlString = "https://www.fangraphs.com/api/leaders/major-league/data?pos=all&stats=pit&lg=all&qual=60&season=2024&month=\(timeFrame.rawValue)"
+            if let teamID = teamID {
+                urlString += "&team=\(teamID)"
+            }
+            guard let url = URL(string: urlString) else {
+                print("Error loading players URL")
+                return
+            }
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if let data = data {
+                    do {
+                        let decoder = JSONDecoder()
+                        let response = try decoder.decode(PitchersResponse.self, from: data)
+                        DispatchQueue.main.async {
+                            self.pitchers = response.data
                         }
                     } catch {
                         print("Error decoding players JSON: \(error.localizedDescription)")

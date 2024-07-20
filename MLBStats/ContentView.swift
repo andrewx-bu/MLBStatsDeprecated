@@ -9,15 +9,28 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            List(viewModel.players, id: \.self) { player in
-                VStack(alignment: .leading) {
-                    Text(player.Name)
-                        .font(.headline)
+            if false {
+                List(viewModel.hitters, id: \.self) { hitter in
+                    VStack(alignment: .leading) {
+                        Text(hitter.Name)
+                            .font(.headline)
+                    }
                 }
-            }
-            .navigationTitle("MLB Players")
-            .onAppear {
-                viewModel.fetchPlayers(timeFrame: ContentView.ViewModel.TimeFrame.L30)
+                .navigationTitle("MLB Hitters")
+                .onAppear {
+                    viewModel.fetchHitters(timeFrame: .L30)
+                }
+            } else {
+                List(viewModel.pitchers, id: \.self) { pitcher in
+                    VStack(alignment: .leading) {
+                        Text(pitcher.Name)
+                            .font(.headline)
+                    }
+                }
+                .navigationTitle("MLB Pitchers")
+                .onAppear {
+                    viewModel.fetchPitchers(timeFrame: .L2Y)
+                }
             }
         }
     }
