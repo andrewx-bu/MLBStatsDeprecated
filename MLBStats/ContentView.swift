@@ -12,8 +12,12 @@ struct ContentView: View {
             if true {
                 List(viewModel.hitters) { hitter in
                     VStack(alignment: .leading) {
-                        Text(hitter.name)
+                        Text("\(hitter.name) (\(hitter.age ?? 0))")
                             .font(.headline)
+                        Text("bats: \(hitter.batSide)")
+                            .font(.caption)
+                        Text("id: " + String(hitter.id))
+                            .font(.caption)
                     }
                 }
                 .navigationTitle("MLB Hitters")

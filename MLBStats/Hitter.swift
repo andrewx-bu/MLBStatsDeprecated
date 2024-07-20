@@ -5,34 +5,27 @@
 import Foundation
 
 struct Hitter: Identifiable, Decodable {
+    let batSide: String
     let id: Int
     let name: String
+    let ageR: String
+    let age: Int?
     
     enum CodingKeys: String, CodingKey {
-        case id = "playerid"
+        case batSide = "Bats"
+        case id = "xMLBAMID"
         case name = "Name"
+        case ageR = "AgeR"
     }
     
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        batSide = try container.decode(String.self, forKey: .batSide)
         id = try container.decode(Int.self, forKey: .id)
-        
-        let nameWithHTML = try container.decode(String.self, forKey: .name)
-        name = Hitter.stripHTML(from: nameWithHTML)
-    }
-    
-    private static func stripHTML(from html: String) -> String {
-        let htmlData = Data(html.utf8)
-        let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
-            .documentType: NSAttributedString.DocumentType.html,
-            .characterEncoding: String.Encoding.utf8.rawValue
-        ]
-        
-        if let attributedString = try? NSAttributedString(data: htmlData, options: options, documentAttributes: nil) {
-            return attributedString.string
-        }
-        return html
+        name = try container.decode(String.self, forKey: .name).stripHTML()
+        ageR = try container.decode(String.self, forKey: .ageR)
+        age = ageR.extractMaxAge()
     }
 }
 
