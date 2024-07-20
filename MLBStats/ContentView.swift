@@ -9,10 +9,10 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            if false {
-                List(viewModel.hitters, id: \.self) { hitter in
+            if true {
+                List(viewModel.hitters) { hitter in
                     VStack(alignment: .leading) {
-                        Text(hitter.Name)
+                        Text(hitter.name)
                             .font(.headline)
                     }
                 }
