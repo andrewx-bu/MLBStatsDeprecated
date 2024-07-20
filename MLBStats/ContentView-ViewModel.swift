@@ -8,19 +8,9 @@ import SwiftUI
 extension ContentView {
     @Observable class ViewModel {
         var players: [Player] = []
-        var teams: [Team] = []
-        var umpires: [Umpire] = []
         
-        func fetchAllData() {
-            fetchTeams()
-            fetchPlayers()
-            fetchUmpires()
-        }
-        
-        // Fetches players active in the currents season. Year in link is one year ahead
-        // URL: https://statsapi.mlb.com/api/{ver}/sports/{sportId}/players
         func fetchPlayers() {
-            guard let url = URL(string: "https://statsapi.mlb.com/api/v1/sports/1/players?season=2025") else {
+            guard let url = URL(string: "https://www.fangraphs.com/api/leaders/major-league/data?age=&pos=all&stats=bat&lg=all&qual=60&season=2024&season1=2023&startdate=2024-03-01&enddate=2024-11-01&month=11&hand=&team=0&pageitems=2000000000&pagenum=1&ind=0&rost=1&players=0&type=8&postseason=&sortdir=default&sortstat=WAR") else {
                 print("Error loading players URL")
                 return
             }
@@ -28,56 +18,12 @@ extension ContentView {
                 if let data = data {
                     do {
                         let decoder = JSONDecoder()
-                        let response = try decoder.decode(PlayerResponse.self, from: data)
+                        let response = try decoder.decode(PlayersResponse.self, from: data)
                         DispatchQueue.main.async {
-                            self.players = response.people
+                            self.players = response.data
                         }
                     } catch {
                         print("Error decoding players JSON: \(error.localizedDescription)")
-                    }
-                }
-            }.resume()
-        }
-        
-        // Fetches teams
-        // URL: https://statsapi.mlb.com/api/{ver}/teams
-        func fetchTeams() {
-            guard let url = URL(string: "https://statsapi.mlb.com/api/v1/teams?leagueIds=103,104") else {
-                print("Error loading teams URL")
-                return
-            }
-            URLSession.shared.dataTask(with: url) { data, response, error in
-                if let data = data {
-                    do {
-                        let decoder = JSONDecoder()
-                        let response = try decoder.decode(TeamResponse.self, from: data)
-                        DispatchQueue.main.async {
-                            self.teams = response.teams
-                        }
-                    } catch {
-                        print("Error decoding teams JSON: \(error.localizedDescription)")
-                    }
-                }
-            }.resume()
-        }
-        
-        // Fetches umpires
-        // URL: https://statsapi.mlb.com/api/{ver}/jobs/umpires
-        func fetchUmpires() {
-            guard let url = URL(string: "https://statsapi.mlb.com/api/v1/jobs/umpires") else {
-                print("Error loading umpires URL")
-                return
-            }
-            URLSession.shared.dataTask(with: url) { data, response, error in
-                if let data = data {
-                    do {
-                        let decoder = JSONDecoder()
-                        let response = try decoder.decode(UmpireResponse.self, from: data)
-                        DispatchQueue.main.async {
-                            self.umpires = response.roster
-                        }
-                    } catch {
-                        print("Error decoding umpires JSON: \(error.localizedDescription)")
                     }
                 }
             }.resume()
