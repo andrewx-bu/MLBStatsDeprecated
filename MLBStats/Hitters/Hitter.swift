@@ -5,10 +5,10 @@
 import Foundation
 
 struct Hitter: Identifiable, Decodable {
-    let bats: String            // Bat Hand
+    let batSide: String         // R
     let id: Int                 // 592450
     let ageR: String            // 30 - 32
-    let age: Int?               // 32                           - Calculated
+    let age: Int                // 32                           - Calculated
     let G: Int                  // Games Played
     let AB: Int                 // At Bats
     let PA: Int                 // Plate Appearances
@@ -81,47 +81,22 @@ struct Hitter: Identifiable, Decodable {
     let teamId: Int             // 9
     
     enum CodingKeys: String, CodingKey {
-        case bats = "Bats"
+        case batSide = "Bats"
         case id = "xMLBAMID"
         case ageR = "AgeR"
-        case G
-        case AB
-        case PA
-        case H
+        case G, AB, PA, H
         case singles = "1B"
         case doubles = "2B"
         case triples = "3B"
-        case HR
-        case R
-        case RBI
-        case BB
-        case IBB
-        case SO
-        case HBP
-        case SF
-        case SH
-        case GDP
-        case SB
-        case CS
-        case AVG
-        case GB
-        case FB
-        case LD
-        case IFFB
+        case HR, R, RBI, BB, IBB, SO, HBP, SF, SH, GDP, SB, CS, AVG, GB, FB, LD, IFFB
         case pitches = "Pitches"
         case balls = "Balls"
         case strikes = "Strikes"
-        case IFH
-        case BU
-        case BUH
+        case IFH, BU, BUH
         case bbPCT = "BB%"
         case kPCT = "K%"
         case BBperK = "BB/K"
-        case OBP
-        case SLG
-        case OPS
-        case ISO
-        case BABIP
+        case OBP, SLG, OPS, ISO, BABIP
         case GBperFB = "GB/FB"
         case ldPCT = "LD%"
         case gbPCT = "GB%"
@@ -131,10 +106,7 @@ struct Hitter: Identifiable, Decodable {
         case ifhPCT = "IFH%"
         case buhPCT = "BUH%"
         case ttoPCT = "TTO%"
-        case wOBA
-        case wRAA
-        case wRC
-        case WAR
+        case wOBA, wRAA, wRC, WAR
         case wRCplus = "wRC+"
         case AVGplus = "AVG+"
         case bbPCTplus = "BB%+"
@@ -155,7 +127,7 @@ struct Hitter: Identifiable, Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        bats = try container.decode(String.self, forKey: .bats)
+        batSide = try container.decode(String.self, forKey: .batSide)
         id = try container.decode(Int.self, forKey: .id)
         ageR = try container.decode(String.self, forKey: .ageR)
         age = ageR.extractMaxAge()

@@ -10,15 +10,24 @@ struct HitterStatsView: View {
     var body: some View {
         List(viewModel.hitters) { hitter in
             VStack(alignment: .leading) {
-                Text("\(hitter.name) (Bats: \(hitter.bats))")
-                    .font(.headline)
-                Text("Age: \(hitter.age ?? 0)")
-                    .font(.caption)
+                HStack {
+                    Text("\(hitter.name) (Bats: \(hitter.batSide))")
+                        .font(.headline)
+                    Spacer()
+                    Text("Team: \(hitter.teamName)")
+                }
+                HStack {
+                    Text("Age: \(hitter.age)")
+                        .font(.caption)
+                    Spacer()
+                    Text("Position: \(hitter.pos)")
+                        .font(.caption)
+                }
             }
         }
         .navigationTitle("MLB Hitters")
         .task {
-            await viewModel.fetchHitters(timeFrame: .L30)
+            await viewModel.fetchHitters(timeFrame: .SZN)
         }
     }
 }
