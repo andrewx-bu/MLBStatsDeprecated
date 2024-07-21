@@ -12,9 +12,10 @@ struct HitterStatsView: View {
             VStack(alignment: .leading) {
                 HStack {
                     Text("\(hitter.name) (Bats: \(hitter.batSide))")
-                        .font(.headline)
+                        .font(.subheadline)
                     Spacer()
                     Text("Team: \(hitter.teamName)")
+                        .font(.subheadline)
                 }
                 HStack {
                     Text("Age: \(hitter.age)")

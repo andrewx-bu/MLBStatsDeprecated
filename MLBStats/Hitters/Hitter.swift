@@ -22,7 +22,7 @@ struct Hitter: Identifiable, Decodable {
     let BB: Int                 // Walks
     let IBB: Int                // Intentional Walks
     let SO: Int                 // Strikeouts
-    let HBP: Int                // Hit By Pitch
+    let HBP: Int                // Hit By Pitches
     let SF: Int                 // Sacrifice Flies
     let SH: Int                 // Sacrifice Hits
     let GDP: Int                // Grounded into Double Play
@@ -74,7 +74,7 @@ struct Hitter: Identifiable, Decodable {
     let ldPCTplus: Double       // Line Drive PCT +
     let gbPCTplus: Double       // Ground Ball PCT +
     let fbPCTplus: Double       // Fly Ball PCT +
-    let HRperFBplus: Double     // Home Runs/Fly Balls +
+    let HRperFBpctPLUS: Double  // Home Runs/Fly Balls PCT +
     let name: String            // Aaron Judge
     let pos: String             // Position
     let teamName: String        // NYY
@@ -118,7 +118,7 @@ struct Hitter: Identifiable, Decodable {
         case ldPCTplus = "LD%+"
         case gbPCTplus = "GB%+"
         case fbPCTplus = "FB%+"
-        case HRperFBplus = "HRFB%+"
+        case HRperFBpctPLUS = "HRFB%+"
         case name = "PlayerName"
         case pos = "position"
         case teamName = "TeamName"
@@ -194,7 +194,7 @@ struct Hitter: Identifiable, Decodable {
         ldPCTplus = try container.decode(Double.self, forKey: .ldPCTplus)
         gbPCTplus = try container.decode(Double.self, forKey: .gbPCTplus)
         fbPCTplus = try container.decode(Double.self, forKey: .fbPCTplus)
-        HRperFBplus = try container.decode(Double.self, forKey: .HRperFBplus)
+        HRperFBpctPLUS = try container.decode(Double.self, forKey: .HRperFBpctPLUS)
         name = try container.decode(String.self, forKey: .name)
         pos = try container.decode(String.self, forKey: .pos)
         teamName = try container.decode(String.self, forKey: .teamName)

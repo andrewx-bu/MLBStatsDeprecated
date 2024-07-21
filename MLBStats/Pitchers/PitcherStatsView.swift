@@ -12,9 +12,10 @@ struct PitcherStatsView: View {
             VStack(alignment: .leading) {
                 HStack {
                     Text("\(pitcher.name) (Pitches: \(pitcher.pitchHand))")
-                        .font(.headline)
+                        .font(.subheadline)
                     Spacer()
                     Text("Team: \(pitcher.teamName)")
+                        .font(.subheadline)
                 }
                 HStack {
                     Text("Age: \(pitcher.age)")

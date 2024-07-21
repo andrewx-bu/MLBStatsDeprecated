@@ -5,89 +5,89 @@
 import Foundation
 
 struct Pitcher: Identifiable, Decodable {
-    let pitchHand: String
-    let id: Int
-    let ageR: String
-    let age: Int
-    let W: Int
-    let L: Int
-    let ERA: Double
-    let G: Int
-    let GS: Int
-    let QS: Int
-    let SV: Int
-    let HLD: Int
-    let BS: Int
-    let IP: Double
-    let TBF: Int
-    let H: Int
-    let R: Int
-    let ER: Int
-    let HR: Int
-    let BB: Int
-    let IBB: Int
-    let HBP: Int
-    let WP: Int
-    let BK: Int
-    let SO: Int
-    let Kper9: Double
-    let BBper9: Double
-    let Hper9: Double
-    let KperBB: Double
-    let ifhPCT: Double
-    let buhPCT: Double
-    let ttoPCT: Double
-    let GB: Int
-    let FB: Int
-    let LD: Int
-    let IFFB: Int
-    let IFH: Int
-    let BU: Int
-    let BUH: Int
-    let kPCT: Double
-    let bbPCT: Double
-    let kMINUSbbPCT: Double
-    let SIERA: Double
-    let HRper9: Double
-    let AVG: Double
-    let WHIP: Double
-    let BABIP: Double
-    let lobPCT: Double
-    let FIP: Double
-    let kwERA: Double
-    let xFIP: Double
-    let GBperFB: Double
-    let ldPCT: Double
-    let gbPCT: Double
-    let fbPCT: Double
-    let iffbPCT: Double
-    let HRperFB: Double
-    let RS: Int
-    let RSper9: Double
-    let balls: Int
-    let strikes: Int
-    let pitches: Int
-    let name: String
-    let teamName: String
-    let teamId: Int
-    let tERA: Double
-    let WAR: Double
+    let pitchHand: String       // R
+    let id: Int                 // 554430
+    let ageR: String            // 31 - 34
+    let age: Int                // 34                                           - Calculated
+    let W: Int                  // Wins
+    let L: Int                  // Losses
+    let ERA: Double             // Earned Runs AVG
+    let G: Int                  // Games Played
+    let GS: Int                 // Games Started
+    let QS: Int                 // Quality Starts
+    let SV: Int                 // Saves
+    let HLD: Int                // Holds
+    let BS: Int                 // Blown Saves
+    let IP: Double              // Innings Pitched
+    let TBF: Int                // Total Batters Faced
+    let H: Int                  // Hits
+    let R: Int                  // Runs
+    let ER: Int                 // Earned Runs
+    let HR: Int                 // Home Runs
+    let BB: Int                 // Walks
+    let IBB: Int                // Intentional Walks
+    let HBP: Int                // Hit By Pitches
+    let WP: Int                 // Wild Pitches
+    let BK: Int                 // Balks
+    let SO: Int                 // Strikeouts
+    let Kper9: Double           // Strikeouts/9 Innings
+    let BBper9: Double          // Walks/9 Innings
+    let Hper9: Double           // Hits/9 Innings
+    let KperBB: Double          // Strikeouts/Walks
+    let ifhPCT: Double          // Infield Hit PCT
+    let buhPCT: Double          // Bunt Hit PCT
+    let ttoPCT: Double          // Three Total Outcomes PCT
+    let GB: Int                 // Ground Balls
+    let FB: Int                 // Fly Balls
+    let LD: Int                 // Line Drives
+    let IFFB: Int               // Infield Fly Balls
+    let IFH: Int                // Infield Hits
+    let BU: Int                 // Bunts
+    let BUH: Int                // Bunt Hits
+    let kPCT: Double            // Strikeout PCT
+    let bbPCT: Double           // Walk PCT
+    let kMINUSbbPCT: Double     // Strikeout PCT - Walk PCT
+    let SIERA: Double           // Skill Interactive ERA
+    let HRper9: Double          // Home Runs/9 Innings
+    let AVG: Double             // Batting AVG
+    let WHIP: Double            // Walks and Hits per Inning Pitched
+    let BABIP: Double           // *Batting AVG on Balls in Play*
+    let lobPCT: Double          // Left on Base PCT
+    let FIP: Double             // *Fielding Independent Pitching*
+    let kwERA: Double           // Earned Run AVG on Strikeouts and Walks       - FanGraphs
+    let xFIP: Double            // *Expected Fielding Independent Pitching*
+    let GBperFB: Double         // Ground Balls/Fly Balls
+    let ldPCT: Double           // Line Drive PCT
+    let gbPCT: Double           // Ground Ball PCT
+    let fbPCT: Double           // Fly Ball PCT
+    let iffbPCT: Double         // Infield Fly Ball PCT
+    let HRperFB: Double         // Home Run/Fly Ball
+    let RS: Int                 // Run Support
+    let RSper9: Double          // Run Support/9 Innings
+    let balls: Int              // 2940
+    let strikes: Int            // 5739
+    let pitches: Int            // 8679
+    let name: String            // Zack Wheeler
+    let teamName: String        // PHI
+    let teamId: Int             // 26
+    let tERA: Double            // *True Earned Run AVG*
+    let WAR: Double             // *Wins Above Replacement*
     // *Plus Stats*
-    let Kper9plus: Double
-    let BBper9plus: Double
-    let KperBBplus: Double
-    let Hper9plus: Double
-    let HRper9plus: Double
-    let AVGplus: Double
-    let WHIPplus: Double
-    let BABIPplus: Double
-    let lobPCTplus: Double
-    let kPCTplus: Double
-    let bbPCTplus: Double
-    let ldPCTplus: Double
-    let gbPCTplus: Double
-    let fbPCTplus: Double
-    let HRperFBplus: Double
+    let Kper9plus: Double       // Strikeout/9 Innings +
+    let BBper9plus: Double      // Walks/9 Innings +
+    let KperBBplus: Double      // Strikeouts/Walks +
+    let Hper9plus: Double       // Hits/9 Innings +
+    let HRper9plus: Double      // HR/9 Innings +
+    let AVGplus: Double         // Batting AVG +
+    let WHIPplus: Double        // Walks and Hits per Inning Pitched +
+    let BABIPplus: Double       // Batting AVG on Balls in Play +
+    let lobPCTplus: Double      // Left on Base PCT +
+    let kPCTplus: Double        // Strikeout PCT +
+    let bbPCTplus: Double       // Walk PCT +
+    let ldPCTplus: Double       // Line Drive PCT +
+    let gbPCTplus: Double       // Ground Ball PCT +
+    let fbPCTplus: Double       // Fly Ball PCT +
+    let HRperFBpctPLUS: Double  // Home Runs/Fly Balls PCT +
     
     enum CodingKeys: String, CodingKey {
         case pitchHand = "Throws"
@@ -140,7 +140,7 @@ struct Pitcher: Identifiable, Decodable {
         case ldPCTplus = "LD%+"
         case gbPCTplus = "GB%+"
         case fbPCTplus = "FB%+"
-        case HRperFBplus = "HRFB%+"
+        case HRperFBpctPLUS = "HRFB%+"
     }
     
     init(from decoder: Decoder) throws {
@@ -226,7 +226,7 @@ struct Pitcher: Identifiable, Decodable {
         ldPCTplus = try container.decode(Double.self, forKey: .ldPCTplus)
         gbPCTplus = try container.decode(Double.self, forKey: .gbPCTplus)
         fbPCTplus = try container.decode(Double.self, forKey: .fbPCTplus)
-        HRperFBplus = try container.decode(Double.self, forKey: .HRperFBplus)
+        HRperFBpctPLUS = try container.decode(Double.self, forKey: .HRperFBpctPLUS)
     }
 }
 
