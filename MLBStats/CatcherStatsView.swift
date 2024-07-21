@@ -1,10 +1,10 @@
-//  FielderStatsView.swift
+//  CatcherStatsView.swift
 //  MLBStats
 //  Created by Andrew Xin on 7/21/24.
 
 import SwiftUI
 
-struct FielderStatsView: View {
+struct CatcherStatsView: View {
     @State private var viewModel = ViewModel()
     
     var body: some View {
@@ -14,20 +14,20 @@ struct FielderStatsView: View {
                 .scaleEffect(1.5, anchor: .center)
                 .padding()
         } else {
-            List(viewModel.fielders) { fielder in
+            List(viewModel.catchers) { catcher in
                 VStack(alignment: .leading) {
-                    Text(fielder.name)
+                    Text(catcher.name)
                         .font(.headline)
                 }
             }
-            .navigationTitle("MLB Fielders")
+            .navigationTitle("MLB Catchers")
             .task {
-                await viewModel.fetchFielders()
+                await viewModel.fetchCatchers()
             }
         }
     }
 }
 
 #Preview {
-    FielderStatsView()
+    CatcherStatsView()
 }
