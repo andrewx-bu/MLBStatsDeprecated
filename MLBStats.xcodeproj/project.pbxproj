@@ -62,6 +62,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		498BCB702C4CF6C000EDC84E /* Hitters */ = {
+			isa = PBXGroup;
+			children = (
+				498BCB4A2C4BCECB00EDC84E /* Hitter.swift */,
+				498BCB6A2C4CEBDE00EDC84E /* HitterStatsView.swift */,
+				498BCB602C4CE83400EDC84E /* HitterStatsView-ViewModel.swift */,
+			);
+			path = Hitters;
+			sourceTree = "<group>";
+		};
+		498BCB712C4CF6EC00EDC84E /* Pitchers */ = {
+			isa = PBXGroup;
+			children = (
+				498BCB4C2C4BCF3600EDC84E /* Pitcher.swift */,
+				498BCB622C4CE90300EDC84E /* PitcherStatsView.swift */,
+				498BCB642C4CE91400EDC84E /* PitcherStatsView-ViewModel.swift */,
+			);
+			path = Pitchers;
+			sourceTree = "<group>";
+		};
+		498BCB722C4CF70A00EDC84E /* Fielder */ = {
+			isa = PBXGroup;
+			children = (
+				498BCB522C4C040200EDC84E /* Fielder.swift */,
+				498BCB5A2C4CE6C500EDC84E /* FielderStatsView.swift */,
+				498BCB5C2C4CE72A00EDC84E /* FielderStatsView-ViewModel.swift */,
+			);
+			path = Fielder;
+			sourceTree = "<group>";
+		};
+		498BCB732C4CF72300EDC84E /* Catcher */ = {
+			isa = PBXGroup;
+			children = (
+				498BCB542C4CAE7700EDC84E /* Catcher.swift */,
+				498BCB662C4CE92700EDC84E /* CatcherStatsView.swift */,
+				498BCB682C4CE93200EDC84E /* CatcherStatsView-ViewModel.swift */,
+			);
+			path = Catcher;
+			sourceTree = "<group>";
+		};
 		49DC63032C44950100A5C81A = {
 			isa = PBXGroup;
 			children = (
@@ -82,21 +122,13 @@
 			isa = PBXGroup;
 			children = (
 				49DC630F2C44950100A5C81A /* MLBStatsApp.swift */,
-				498BCB4A2C4BCECB00EDC84E /* Hitter.swift */,
-				498BCB4C2C4BCF3600EDC84E /* Pitcher.swift */,
-				498BCB522C4C040200EDC84E /* Fielder.swift */,
-				498BCB542C4CAE7700EDC84E /* Catcher.swift */,
-				498BCB6E2C4CF17800EDC84E /* TimeFrame.swift */,
 				49DC63112C44950100A5C81A /* ContentView.swift */,
 				49DC631D2C44984200A5C81A /* ContentView-ViewModel.swift */,
-				498BCB6A2C4CEBDE00EDC84E /* HitterStatsView.swift */,
-				498BCB602C4CE83400EDC84E /* HitterStatsView-ViewModel.swift */,
-				498BCB622C4CE90300EDC84E /* PitcherStatsView.swift */,
-				498BCB642C4CE91400EDC84E /* PitcherStatsView-ViewModel.swift */,
-				498BCB5A2C4CE6C500EDC84E /* FielderStatsView.swift */,
-				498BCB5C2C4CE72A00EDC84E /* FielderStatsView-ViewModel.swift */,
-				498BCB662C4CE92700EDC84E /* CatcherStatsView.swift */,
-				498BCB682C4CE93200EDC84E /* CatcherStatsView-ViewModel.swift */,
+				498BCB702C4CF6C000EDC84E /* Hitters */,
+				498BCB712C4CF6EC00EDC84E /* Pitchers */,
+				498BCB722C4CF70A00EDC84E /* Fielder */,
+				498BCB732C4CF72300EDC84E /* Catcher */,
+				498BCB6E2C4CF17800EDC84E /* TimeFrame.swift */,
 				498BCB502C4BD6A300EDC84E /* Extensions.swift */,
 				49DC63132C44950200A5C81A /* Assets.xcassets */,
 				49DC63152C44950200A5C81A /* Preview Content */,
