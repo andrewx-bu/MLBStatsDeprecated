@@ -20,6 +20,7 @@
 		498BCB672C4CE92700EDC84E /* CatcherStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498BCB662C4CE92700EDC84E /* CatcherStatsView.swift */; };
 		498BCB692C4CE93200EDC84E /* CatcherStatsView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498BCB682C4CE93200EDC84E /* CatcherStatsView-ViewModel.swift */; };
 		498BCB6B2C4CEBDE00EDC84E /* HitterStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498BCB6A2C4CEBDE00EDC84E /* HitterStatsView.swift */; };
+		498BCB6F2C4CF17800EDC84E /* TimeFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498BCB6E2C4CF17800EDC84E /* TimeFrame.swift */; };
 		49DC63102C44950100A5C81A /* MLBStatsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DC630F2C44950100A5C81A /* MLBStatsApp.swift */; };
 		49DC63122C44950100A5C81A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DC63112C44950100A5C81A /* ContentView.swift */; };
 		49DC63142C44950200A5C81A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49DC63132C44950200A5C81A /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 		498BCB662C4CE92700EDC84E /* CatcherStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatcherStatsView.swift; sourceTree = "<group>"; };
 		498BCB682C4CE93200EDC84E /* CatcherStatsView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CatcherStatsView-ViewModel.swift"; sourceTree = "<group>"; };
 		498BCB6A2C4CEBDE00EDC84E /* HitterStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitterStatsView.swift; sourceTree = "<group>"; };
+		498BCB6E2C4CF17800EDC84E /* TimeFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFrame.swift; sourceTree = "<group>"; };
 		49DC630C2C44950100A5C81A /* MLBStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLBStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49DC630F2C44950100A5C81A /* MLBStatsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLBStatsApp.swift; sourceTree = "<group>"; };
 		49DC63112C44950100A5C81A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				498BCB4C2C4BCF3600EDC84E /* Pitcher.swift */,
 				498BCB522C4C040200EDC84E /* Fielder.swift */,
 				498BCB542C4CAE7700EDC84E /* Catcher.swift */,
+				498BCB6E2C4CF17800EDC84E /* TimeFrame.swift */,
 				49DC63112C44950100A5C81A /* ContentView.swift */,
 				49DC631D2C44984200A5C81A /* ContentView-ViewModel.swift */,
 				498BCB6A2C4CEBDE00EDC84E /* HitterStatsView.swift */,
@@ -194,6 +197,7 @@
 				49DC63102C44950100A5C81A /* MLBStatsApp.swift in Sources */,
 				498BCB612C4CE83400EDC84E /* HitterStatsView-ViewModel.swift in Sources */,
 				498BCB4D2C4BCF3600EDC84E /* Pitcher.swift in Sources */,
+				498BCB6F2C4CF17800EDC84E /* TimeFrame.swift in Sources */,
 				498BCB5B2C4CE6C500EDC84E /* FielderStatsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

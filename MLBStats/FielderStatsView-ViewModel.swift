@@ -7,11 +7,8 @@ import Foundation
 extension FielderStatsView {
     @Observable class ViewModel {
         var fielders: [Fielder] = []
-        var isLoading = false
         
         func fetchFielders(for teamID: Int? = nil, inn: Int = 50, startSeason: String? = nil, currentSeason: Int = 2024) async {
-            isLoading = true
-            defer { isLoading = false }
             var urlString = "https://www.fangraphs.com/api/leaders/major-league/data?pos=all&stats=fld&lg=all&qual=\(inn)&pageitems=999&rost=1&season=\(currentSeason)"
             if let startSeason = startSeason {
                 urlString += "&season1=\(startSeason)"

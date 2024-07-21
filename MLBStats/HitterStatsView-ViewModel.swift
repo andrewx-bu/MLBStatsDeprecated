@@ -10,15 +10,14 @@ extension HitterStatsView {
         var hitters: [Hitter] = []
         var isLoading = false
         
-        func fetchHitters(for teamID: Int? = nil, PA: Int = 60, timeFrame: ContentView.ViewModel.TimeFrame = .L2Y, currentSeason: Int = 2024) async {
+        func fetchHitters(for teamID: Int? = nil, PA: Int = 60, timeFrame: TimeFrame = .L2Y, currentSeason: Int = 2024) async {
             isLoading = true
-            defer { isLoading = false }
             var urlString = "https://www.fangraphs.com/api/leaders/major-league/data?pos=all&stats=bat&lg=all&qual=\(PA)&pageitems=999&rost=1&season=\(currentSeason)&month=\(timeFrame.rawValue)"
             if let teamID = teamID {
                 urlString += "&team=\(teamID)"
             }
             guard let url = URL(string: urlString) else {
-                print("Error loading players URL")
+                print("Error loading hitters URL")
                 return
             }
             do {
@@ -30,6 +29,9 @@ extension HitterStatsView {
                 }
             } catch {
                 print("Error fetching or decoding hitters JSON: \(error.localizedDescription)")
+            }
+            do {
+                isLoading = false
             }
         }
     }

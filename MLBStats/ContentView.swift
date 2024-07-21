@@ -8,7 +8,7 @@ struct ContentView: View {
     @State private var viewModel = ViewModel()
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Picker("Select View", selection: $viewModel.currentView) {
                     ForEach(ViewModel.CurrentView.allCases, id: \.self) { view in
