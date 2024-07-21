@@ -91,7 +91,9 @@ extension ContentView {
                 let (data, _) = try await URLSession.shared.data(from: url)
                 let decoder = JSONDecoder()
                 let response = try decoder.decode(FieldersResponse.self, from: data)
-                self.fielders = response.data
+                self.fielders = response.data.filter { fielder in
+                    fielder.pos != "P" && fielder.pos != "C"
+                }
             } catch {
                 print("Error decoding fielders JSON: \(error.localizedDescription)")
             }

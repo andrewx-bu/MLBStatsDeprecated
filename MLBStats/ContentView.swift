@@ -46,9 +46,9 @@ struct ContentView: View {
                         .navigationTitle("MLB Pitchers")
                         
                     case .fielders:
-                        List(viewModel.fielders, id: \.self) { fielder in
+                        List(viewModel.fielders) { fielder in
                             VStack(alignment: .leading) {
-                                Text(fielder.Name)
+                                Text(fielder.name)
                                     .font(.headline)
                             }
                         }
