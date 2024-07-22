@@ -10,10 +10,6 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Text("Show Stats For:")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal)
-                    .font(.subheadline)
                 Picker("Select View", selection: $viewModel.currentView) {
                     ForEach(ViewModel.CurrentView.allCases, id: \.self) { view in
                         Text(view.rawValue)
@@ -22,13 +18,13 @@ struct ContentView: View {
                 .pickerStyle(SegmentedPickerStyle())
                 .padding(.horizontal)
                 switch viewModel.currentView {
-                case .hitters:
+                case .Hitters:
                     HitterStatsView()
-                case .pitchers:
+                case .Pitchers:
                     PitcherStatsView()
-                case .fielders:
+                case .Fielders:
                     FielderStatsView()
-                case .catchers:
+                case .Catchers:
                     CatcherStatsView()
                 }
             }

@@ -10,20 +10,29 @@ extension HitterStatsView {
         var selectedTimeFrame: TimeFrame = .SZN {
             didSet {
                 Task {
-                    await fetchHitters(timeFrame: selectedTimeFrame)
+                    await fetchHitters(min: minimumPA, timeFrame: selectedTimeFrame)
                 }
             }
         }
+        var PAs = [50, 150, 300, 500, 700]
+        var minimumPA = 50 {
+            didSet {
+                Task {
+                    await fetchHitters(min: minimumPA, timeFrame: selectedTimeFrame)
+                }
+            }
+        }
+        var isLoading = false
         
         /*
-         By default, fetches hitter stats from the past 3 calendar years
+         By default, fetches hitter stats from current season
          - PA: Min Plate Appearances
-         - default is 60 for L30D stats, 250 if farther back
          - timeFrame: include stats from L30 Days, L1 Calendar Year, L2 Calendar Years, or L3
          - teamID: only include players on this team
          */
-        func fetchHitters(min PA: Int? = nil, timeFrame: TimeFrame = .L3Y, currentSeason: Int = Int(Calendar.current.component(.year, from: Date())), for teamID: Int? = nil) async {
-            let PA = PA ?? (timeFrame == .L30 ? 60 : 250)
+        func fetchHitters(min PA: Int = 50, timeFrame: TimeFrame = .SZN, currentSeason: Int = Int(Calendar.current.component(.year, from: Date())), for teamID: Int? = nil) async {
+            isLoading = true
+            defer { isLoading = false }
             var urlString = "https://www.fangraphs.com/api/leaders/major-league/data?pos=all&stats=bat&lg=all&qual=\(PA)&pageitems=999&rost=1&season=\(currentSeason)&month=\(timeFrame.rawValue)"
             if let teamID = teamID {
                 urlString += "&team=\(teamID)"

@@ -9,13 +9,42 @@ struct FielderStatsView: View {
     
     var body: some View {
         VStack {
-            Picker("Season Range", selection: $viewModel.selectedSeasonRange) {
-                ForEach(SeasonRange.allCases, id: \.rawValue) { range in
-                    Text(range.rawValue).tag(range)
+            HStack {
+                Text("Time Frame:")
+                    .font(.subheadline)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading)
+                Picker("Select Season Range", selection: $viewModel.selectedSeasonRange) {
+                    ForEach(SeasonRange.allCases, id: \.rawValue) { range in
+                        Text(range.rawValue).tag(range)
+                    }
                 }
+                .pickerStyle(SegmentedPickerStyle())
+                .frame(width: 250)
+                .padding(.trailing)
             }
-            .pickerStyle(SegmentedPickerStyle())
-            .padding(.horizontal)
+            HStack {
+                Text("Minimum IP:")
+                    .font(.subheadline)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading)
+                Picker("Select Minimum IP", selection: $viewModel.minimumIP) {
+                    ForEach(viewModel.IPs, id: \.self) { IP in
+                        Text("\(IP)").tag(IP)
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .frame(width: 250)
+                .padding(.trailing)
+            }
+            Text("Number of Results: \(viewModel.fielders.count)")
+                .font(.subheadline)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.top, 5)
+                .padding(.leading)
+            if viewModel.isLoading {
+                ProgressView("Updating...")
+            }
             List(viewModel.fielders) { fielder in
                 VStack(alignment: .leading) {
                     HStack {

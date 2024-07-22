@@ -7,13 +7,13 @@ import SwiftUI
 
 extension ContentView {
     @Observable class ViewModel {
-        var currentView: CurrentView = .hitters
+        var currentView: CurrentView = .Hitters
         
         enum CurrentView: String, CaseIterable {
-            case hitters
-            case pitchers
-            case fielders
-            case catchers
+            case Hitters
+            case Pitchers
+            case Fielders
+            case Catchers
         }
     }
 }

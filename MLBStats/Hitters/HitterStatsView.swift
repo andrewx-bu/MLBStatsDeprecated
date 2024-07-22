@@ -9,17 +9,42 @@ struct HitterStatsView: View {
     
     var body: some View {
         VStack {
-            Text("Choose Time Frame:")
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal)
-                .font(.subheadline)
-            Picker("Select Time Frame", selection: $viewModel.selectedTimeFrame) {
-                ForEach(TimeFrame.allCases, id: \.self) { timeFrame in
-                    Text(String(describing: timeFrame)).tag(timeFrame)
+            HStack {
+                Text("Time Frame:")
+                    .font(.subheadline)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading)
+                Picker("Select Time Frame", selection: $viewModel.selectedTimeFrame) {
+                    ForEach(TimeFrame.allCases, id: \.self) { timeFrame in
+                        Text(String(describing: timeFrame)).tag(timeFrame)
+                    }
                 }
+                .pickerStyle(SegmentedPickerStyle())
+                .frame(width: 250)
+                .padding(.trailing)
             }
-            .pickerStyle(SegmentedPickerStyle())
-            .padding(.horizontal)
+            HStack {
+                Text("Minimum PA:")
+                    .font(.subheadline)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading)
+                Picker("Select Minimum PAs", selection: $viewModel.minimumPA) {
+                    ForEach(viewModel.PAs, id: \.self) { PA in
+                        Text("\(PA)").tag(PA)
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .frame(width: 250)
+                .padding(.trailing)
+            }
+            Text("Number of Results: \(viewModel.hitters.count)")
+                .font(.subheadline)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.top, 5)
+                .padding(.leading)
+            if viewModel.isLoading {
+                ProgressView("Updating...")
+            }
             List(viewModel.hitters) { hitter in
                 VStack(alignment: .leading) {
                     HStack {
@@ -38,10 +63,10 @@ struct HitterStatsView: View {
                     }
                 }
             }
-            .navigationTitle("MLB Hitter Stats")
-            .task {
-                await viewModel.fetchHitters(timeFrame: viewModel.selectedTimeFrame)
-            }
+        }
+        .navigationTitle("MLB Hitters")
+        .task {
+            await viewModel.fetchHitters(min: viewModel.minimumPA, timeFrame: viewModel.selectedTimeFrame)
         }
     }
 }
