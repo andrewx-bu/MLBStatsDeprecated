@@ -1,9 +1,6 @@
-//
 //  MLBStatsApp.swift
 //  MLBStats
-//
 //  Created by Andrew Xin on 7/14/24.
-//
 
 import SwiftUI
 
