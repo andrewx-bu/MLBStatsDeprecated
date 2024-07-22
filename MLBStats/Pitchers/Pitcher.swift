@@ -53,9 +53,13 @@ struct Pitcher: Identifiable, Decodable {
     let WHIP: Double            // Walks and Hits per Inning Pitched
     let BABIP: Double           // *Batting AVG on Balls in Play*
     let lobPCT: Double          // Left on Base PCT
-    let FIP: Double             // *Fielding Independent Pitching*
+    let FIP: Double             // Fielding Independent Pitching
     let kwERA: Double           // Earned Run AVG on Strikeouts and Walks       - FanGraphs
-    let xFIP: Double            // *Expected Fielding Independent Pitching*
+    let xFIP: Double            // Expected Fielding Independent Pitching
+    // *Minus Stats*
+    let ERAminus: Double        // Earned Runs AVG -                            - FanGraphs
+    let FIPminus: Double        // Field Independent Pitching -                 - Fangraphs
+    let xFIPminus: Double       // Expected Field Independent Pitching -        - Fangraphs
     let GBperFB: Double         // Ground Balls/Fly Balls
     let ldPCT: Double           // Line Drive PCT
     let gbPCT: Double           // Ground Ball PCT
@@ -110,6 +114,9 @@ struct Pitcher: Identifiable, Decodable {
         case AVG, WHIP, BABIP
         case lobPCT = "LOB%"
         case FIP, kwERA, xFIP
+        case ERAminus = "ERA-"
+        case FIPminus = "FIP-"
+        case xFIPminus = "xFIP-"
         case GBperFB = "GB/FB"
         case ldPCT = "LD%"
         case gbPCT = "GB%"
@@ -196,6 +203,9 @@ struct Pitcher: Identifiable, Decodable {
         FIP = try container.decode(Double.self, forKey: .FIP)
         kwERA = try container.decode(Double.self, forKey: .kwERA)
         xFIP = try container.decode(Double.self, forKey: .xFIP)
+        ERAminus = try container.decode(Double.self, forKey: .ERAminus)
+        FIPminus = try container.decode(Double.self, forKey: .FIPminus)
+        xFIPminus = try container.decode(Double.self, forKey: .xFIPminus)
         GBperFB = try container.decode(Double.self, forKey: .GBperFB)
         ldPCT = try container.decode(Double.self, forKey: .ldPCT)
         gbPCT = try container.decode(Double.self, forKey: .gbPCT)
