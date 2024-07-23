@@ -38,7 +38,7 @@ extension HitterStatsView {
                 urlString += "&team=\(teamID)"
             }
             guard let url = URL(string: urlString) else {
-                print("Error loading hitters URL")
+                print("Invalid hitters URL")
                 return
             }
             do {

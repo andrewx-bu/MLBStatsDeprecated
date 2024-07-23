@@ -41,7 +41,7 @@ extension FielderStatsView {
                 urlString += "&team=\(teamID)"
             }
             guard let url = URL(string: urlString) else {
-                print("Error loading fielders URL")
+                print("Invalid fielders URL")
                 return
             }
             do {

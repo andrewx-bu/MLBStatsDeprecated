@@ -8,7 +8,7 @@ import SwiftUI
 struct MLBStatsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ScheduleView()
         }
     }
 }

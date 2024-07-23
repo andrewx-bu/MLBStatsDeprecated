@@ -41,7 +41,7 @@ extension CatcherStatsView {
                 urlString += "&team=\(teamID)"
             }
             guard let url = URL(string: urlString) else {
-                print("Error loading catchers URL")
+                print("Invalid catchers URL")
                 return
             }
             do {
