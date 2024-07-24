@@ -14,15 +14,12 @@ extension ScheduleView {
                 }
             }
         }
-        var isLoading = false
         
         /*
          By default, fetches games for this day. Will refresh at 6:00 AM PST I believe
          - Allows fetching games for a specific day: Date format is MM/DD/YYYY
          */
         func fetchSchedule(date: Date? = nil) async {
-            isLoading = true
-            defer { isLoading = false }
             var urlString = "https://statsapi.mlb.com/api/v1/schedule?sportId=1"
             if let date = date {
                 let dateFormatter = DateFormatter()

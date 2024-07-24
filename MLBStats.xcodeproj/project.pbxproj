@@ -80,6 +80,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4908F5822C50BFC6000B98D5 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				498BCB8F2C4FB7E000EDC84E /* Schedule.swift */,
+				498BCB8D2C4FB7D500EDC84E /* ScheduleView.swift */,
+				498BCB932C4FD22100EDC84E /* ScheduleView-ViewModel.swift */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
 		498BCB702C4CF6C000EDC84E /* Hitters */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,9 +187,7 @@
 				49DC63112C44950100A5C81A /* ContentView.swift */,
 				49DC631D2C44984200A5C81A /* ContentView-ViewModel.swift */,
 				498BCB7A2C4E7DDF00EDC84E /* Stats */,
-				498BCB8F2C4FB7E000EDC84E /* Schedule.swift */,
-				498BCB8D2C4FB7D500EDC84E /* ScheduleView.swift */,
-				498BCB932C4FD22100EDC84E /* ScheduleView-ViewModel.swift */,
+				4908F5822C50BFC6000B98D5 /* Schedule */,
 				498BCB8A2C4FB75B00EDC84E /* Global */,
 				49DC63132C44950200A5C81A /* Assets.xcassets */,
 				49DC63152C44950200A5C81A /* Preview Content */,

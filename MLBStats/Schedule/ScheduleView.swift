@@ -12,27 +12,31 @@ struct ScheduleView: View {
             DatePicker("Select Date:", selection: $viewModel.selectedDate, displayedComponents: [.date])
                 .frame(width: 250)
                 .padding(.horizontal)
-            if viewModel.isLoading {
-                ProgressView("Updating...")
-                Spacer()
-            }
             List(viewModel.schedule, id: \.date) { scheduleDate in
                 Section(header: Text("Date: \(scheduleDate.date)")) {
                     ForEach(scheduleDate.games, id: \.gamePk) { game in
                         VStack(alignment: .leading) {
-                            Text("Game ID: \(game.gamePk)")
-                                .font(.headline)
+                            HStack {
+                                Text("\(game.teams.away.team.name) @ \(game.teams.home.team.name)")
+                                    .font(.headline)
+                                Spacer()
+                                Text("\(game.teams.away.score ?? 0)-\(game.teams.home.score ?? 0)")
+                                    .font(.headline)
+                            }
+                            
                             HStack {
                                 VStack(alignment: .leading) {
-                                    Text("Away Team: \(game.teams.away.team.name)")
-                                    Text("Score: \(game.teams.away.score ?? 0)")
-                                    Text("Record: \(game.teams.away.leagueRecord.wins)-\(game.teams.away.leagueRecord.losses)")
+                                    Text("Away Team Record:")
+                                        .font(.subheadline)
+                                    Text("\(game.teams.away.leagueRecord.wins)-\(game.teams.away.leagueRecord.losses)")
+                                        .font(.caption)
                                 }
                                 Spacer()
                                 VStack(alignment: .leading) {
-                                    Text("Home Team: \(game.teams.home.team.name)")
-                                    Text("Score: \(game.teams.home.score ?? 0)")
-                                    Text("Record: \(game.teams.home.leagueRecord.wins)-\(game.teams.home.leagueRecord.losses)")
+                                    Text("Home Team Record:")
+                                        .font(.subheadline)
+                                    Text("\(game.teams.home.leagueRecord.wins)-\(game.teams.home.leagueRecord.losses)")
+                                        .font(.caption)
                                 }
                             }
                             
@@ -40,6 +44,7 @@ struct ScheduleView: View {
                             Text("Date: \(game.gameDate.formattedGameDate())")
                             Text("Status: \(game.status.statusCode)")
                         }
+                        .padding(.vertical, 4)
                     }
                 }
             }
