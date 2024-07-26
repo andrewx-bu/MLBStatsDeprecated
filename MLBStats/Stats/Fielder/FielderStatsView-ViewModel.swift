@@ -48,9 +48,11 @@ extension FielderStatsView {
                 let (data, _) = try await URLSession.shared.data(from: url)
                 let decoder = JSONDecoder()
                 let response = try decoder.decode(FieldersResponse.self, from: data)
-                // exclude pitchers and catchers
-                self.fielders = response.data.filter { fielder in
-                    fielder.pos != "P" && fielder.pos != "C"
+                DispatchQueue.main.async {
+                    // exclude pitchers and catchers
+                    self.fielders = response.data.filter { fielder in
+                        fielder.pos != "P" && fielder.pos != "C"
+                    }
                 }
             } catch {
                 print("Error fetching or decoding fielders JSON: \(error.localizedDescription)")

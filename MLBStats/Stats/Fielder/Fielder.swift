@@ -26,13 +26,7 @@ struct Fielder: Identifiable, Decodable {
         case pos = "Pos"
         case G
         case inn = "Inn"
-        case PO
-        case A
-        case E
-        case DP
-        case FP
-        case DRS
-        case UZR
+        case PO, A, E, DP, FP, DRS, UZR
         case UZRper150 = "UZR/150"
         case DEF = "Defense"
         case OAA

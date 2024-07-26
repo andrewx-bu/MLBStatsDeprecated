@@ -7,6 +7,7 @@ import Foundation
 extension ScheduleView {
     @Observable class ViewModel {
         var schedule: [ScheduleDate] = []
+        var teamStats: [TeamFieldingAndCatching] = []
         var selectedDate: Date = Date() {
             didSet {
                 Task {
@@ -35,7 +36,9 @@ extension ScheduleView {
                 let (data, _) = try await URLSession.shared.data(from: url)
                 let decoder = JSONDecoder()
                 let response = try decoder.decode(ScheduleResponse.self, from: data)
-                self.schedule = response.dates
+                DispatchQueue.main.async {
+                    self.schedule = response.dates
+                }
             } catch {
                 print("Error fetching or decoding schedule JSON: \(error.localizedDescription)")
             }

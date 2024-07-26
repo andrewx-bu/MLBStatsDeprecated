@@ -1,10 +1,10 @@
-//  Catcher.swift
+//  TeamFieldingAndCatching.swift
 //  MLBStats
-//  Created by Andrew Xin on 7/20/24.
+//  Created by Andrew Xin on 7/23/24.
 
 import Foundation
 
-struct Catcher: Identifiable, Decodable {
+struct TeamFieldingAndCatching: Identifiable, Decodable {
     let G: Int              // Games Played
     let inn: Double         // Innings Played
     let PO: Int             // Putouts
@@ -18,25 +18,26 @@ struct Catcher: Identifiable, Decodable {
     let WP: Int             // Wild Pitches
     let FP: Double          // *Fielding PCT*
     let DRS: Int            // *Defensive Runs Saved*
+    let UZR: Double         // *Ultimate Zone Rating*
+    let UZRper150: Double   // *UZR per 150 Games*              - FanGraphs
     let DEF: Double         // *Defensive Runs Above AVG*       - FanGraphs
     let FRM: Double         // Catcher Framing                  - Statcast
+    let OAA: Int            // *Outs Above AVG*                 - Statcast
     let FRV: Int            // *Fielding Run Value*             - Statcast
-    let name: String        // Patrick Bailey
-    let id: Int             // 672275
-    let teamId: Int         // 30
-    let teamName: String    // SFG
+    let id: Int             // 7
+    let name: String        // KCR
     
     enum CodingKeys: String, CodingKey {
         case G
         case inn = "Inn"
-        case PO,  A, E, DP, SB, CS, PB, WP, FP, DRS
+        case PO, A, E, DP, SB, CS, PB, WP, FP, DRS, UZR
+        case UZRper150 = "UZR/150"
         case DEF = "Defense"
         case FRM = "CFraming"
+        case OAA
         case FRV = "FRP"
-        case name = "PlayerName"
-        case id = "xMLBAMID"
-        case teamId = "teamid"
-        case teamName = "TeamName"
+        case id = "teamid"
+        case name = "TeamNameAbb"
     }
     
     init(from decoder: Decoder) throws {
@@ -54,16 +55,17 @@ struct Catcher: Identifiable, Decodable {
         WP = try container.decode(Int.self, forKey: .WP)
         FP = try container.decode(Double.self, forKey: .FP)
         DRS = try container.decode(Int.self, forKey: .DRS)
+        UZR = try container.decode(Double.self, forKey: .UZR)
+        UZRper150 = try container.decode(Double.self, forKey: .UZRper150)
         DEF = try container.decode(Double.self, forKey: .DEF)
         FRM = try container.decode(Double.self, forKey: .FRM)
+        OAA = try container.decode(Int.self, forKey: .OAA)
         FRV = try container.decode(Int.self, forKey: .FRV)
-        name = try container.decode(String.self, forKey: .name)
         id = try container.decode(Int.self, forKey: .id)
-        teamId = try container.decode(Int.self, forKey: .teamId)
-        teamName = try container.decode(String.self, forKey: .teamName)
+        name = try container.decode(String.self, forKey: .name)
     }
 }
 
-struct CatchersResponse: Decodable {
-    let data: [Catcher]
+struct TeamFieldingAndCatchingResponse: Decodable {
+    let data: [TeamFieldingAndCatching]
 }

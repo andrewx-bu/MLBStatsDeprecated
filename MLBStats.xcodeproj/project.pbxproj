@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4908F5892C51E6A3000B98D5 /* TeamFieldingAndCatching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4908F5882C51E6A3000B98D5 /* TeamFieldingAndCatching.swift */; };
+		4908F58B2C52956B000B98D5 /* ScheduleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4908F58A2C52956B000B98D5 /* ScheduleDetailView.swift */; };
+		4908F58D2C529588000B98D5 /* ScheduleDetailView-ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4908F58C2C529588000B98D5 /* ScheduleDetailView-ViewController.swift */; };
 		498BCB4B2C4BCECB00EDC84E /* Hitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498BCB4A2C4BCECB00EDC84E /* Hitter.swift */; };
 		498BCB4D2C4BCF3600EDC84E /* Pitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498BCB4C2C4BCF3600EDC84E /* Pitcher.swift */; };
 		498BCB512C4BD6A300EDC84E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498BCB502C4BD6A300EDC84E /* Extensions.swift */; };
@@ -38,6 +41,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4908F5882C51E6A3000B98D5 /* TeamFieldingAndCatching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamFieldingAndCatching.swift; sourceTree = "<group>"; };
+		4908F58A2C52956B000B98D5 /* ScheduleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailView.swift; sourceTree = "<group>"; };
+		4908F58C2C529588000B98D5 /* ScheduleDetailView-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScheduleDetailView-ViewController.swift"; sourceTree = "<group>"; };
 		498BCB4A2C4BCECB00EDC84E /* Hitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hitter.swift; sourceTree = "<group>"; };
 		498BCB4C2C4BCF3600EDC84E /* Pitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pitcher.swift; sourceTree = "<group>"; };
 		498BCB502C4BD6A300EDC84E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -86,8 +92,19 @@
 				498BCB8F2C4FB7E000EDC84E /* Schedule.swift */,
 				498BCB8D2C4FB7D500EDC84E /* ScheduleView.swift */,
 				498BCB932C4FD22100EDC84E /* ScheduleView-ViewModel.swift */,
+				4908F58A2C52956B000B98D5 /* ScheduleDetailView.swift */,
+				4908F58C2C529588000B98D5 /* ScheduleDetailView-ViewController.swift */,
+				4908F5852C50C58B000B98D5 /* Teams */,
 			);
 			path = Schedule;
+			sourceTree = "<group>";
+		};
+		4908F5852C50C58B000B98D5 /* Teams */ = {
+			isa = PBXGroup;
+			children = (
+				4908F5882C51E6A3000B98D5 /* TeamFieldingAndCatching.swift */,
+			);
+			path = Teams;
 			sourceTree = "<group>";
 		};
 		498BCB702C4CF6C000EDC84E /* Hitters */ = {
@@ -278,10 +295,13 @@
 				498BCB942C4FD22100EDC84E /* ScheduleView-ViewModel.swift in Sources */,
 				498BCB512C4BD6A300EDC84E /* Extensions.swift in Sources */,
 				498BCB792C4E7CF900EDC84E /* Protocols.swift in Sources */,
+				4908F58D2C529588000B98D5 /* ScheduleDetailView-ViewController.swift in Sources */,
 				498BCB832C4E83E400EDC84E /* MinimumSelectionPicker.swift in Sources */,
+				4908F58B2C52956B000B98D5 /* ScheduleDetailView.swift in Sources */,
 				498BCB852C4E856E00EDC84E /* NumberOfResultsView.swift in Sources */,
 				498BCB5D2C4CE72A00EDC84E /* FielderStatsView-ViewModel.swift in Sources */,
 				498BCB552C4CAE7700EDC84E /* Catcher.swift in Sources */,
+				4908F5892C51E6A3000B98D5 /* TeamFieldingAndCatching.swift in Sources */,
 				49DC631E2C44984200A5C81A /* ContentView-ViewModel.swift in Sources */,
 				498BCB8E2C4FB7D500EDC84E /* ScheduleView.swift in Sources */,
 				498BCB672C4CE92700EDC84E /* CatcherStatsView.swift in Sources */,
