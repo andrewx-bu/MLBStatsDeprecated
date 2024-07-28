@@ -26,45 +26,42 @@ struct ScheduleDetailView: View {
                 Text("Team Stats")
                     .font(.title2)
                     .padding(.top)
+                ForEach(viewModel.teamPStats, id: \.id) { stat in
+                    VStack(alignment: .leading) {
+                        Text("Team: \(stat.name)")
+                            .font(.headline)
+                        Text("Games Played: \(stat.G)")
+                    }
+                    .padding(.bottom)
+                }
                 ForEach(viewModel.teamFCStats, id: \.id) { stat in
                     VStack(alignment: .leading) {
                         Text("Team: \(stat.name)")
                             .font(.headline)
-                        Text("Games Played: \(stat.G)")
-                        Text("Innings Played: \(stat.inn)")
-                        Text("Stolen Bases: \(stat.SB)")
-                        Text("Caught Stealing: \(stat.CS)")
-                        if let csPCT = stat.csPCT {
-                            Text("Caught Stealing PCT: \(csPCT, specifier: "%.2f")")
-                        }
-                        Text("Passed Balls: \(stat.PB)")
-                        Text("Wild Pitches: \(stat.WP)")
-                        Text("Fielding Percentage: \(stat.FP, specifier: "%.3f")")
-                        Text("Defensive Runs Saved: \(stat.DRS)")
                         Text("Ultimate Zone Rating: \(stat.UZR, specifier: "%.2f")")
-                        Text("Defensive Runs Above Average: \(stat.DEF, specifier: "%.2f")")
-                        Text("Outs Above Average: \(stat.OAA)")
                     }
                     .padding(.bottom)
                 }
+                Divider()
                 ForEach(viewModel.teamHStats, id: \.id) { stat in
                     VStack(alignment: .leading) {
                         Text("Team: \(stat.name)")
                             .font(.headline)
-                        Text("Games Played: \(stat.G)")
                         if let csPCT = stat.csPCT {
                             Text("Caught Stealing PCT: \(csPCT, specifier: "%.2f")")
                         }
                     }
                     .padding(.bottom)
                 }
+                Divider()
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         }
         .navigationBarTitle("Game Details", displayMode: .inline)
         .task {
-            await viewModel.fetchFieldingAndCatchingData()
             await viewModel.fetchHittingData()
+            await viewModel.fetchPitchingData()
+            await viewModel.fetchFieldingAndCatchingData()
         }
     }
 }
