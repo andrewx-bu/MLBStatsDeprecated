@@ -38,6 +38,8 @@
 		49DC63142C44950200A5C81A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49DC63132C44950200A5C81A /* Assets.xcassets */; };
 		49DC63172C44950200A5C81A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49DC63162C44950200A5C81A /* Preview Assets.xcassets */; };
 		49DC631E2C44984200A5C81A /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DC631D2C44984200A5C81A /* ContentView-ViewModel.swift */; };
+		49EBD3992C56D11900AB0EF7 /* TeamHitting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EBD3982C56D11900AB0EF7 /* TeamHitting.swift */; };
+		49EBD39D2C56D59A00AB0EF7 /* TeamPitching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EBD39C2C56D59A00AB0EF7 /* TeamPitching.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +75,8 @@
 		49DC63132C44950200A5C81A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49DC63162C44950200A5C81A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		49DC631D2C44984200A5C81A /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
+		49EBD3982C56D11900AB0EF7 /* TeamHitting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamHitting.swift; sourceTree = "<group>"; };
+		49EBD39C2C56D59A00AB0EF7 /* TeamPitching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamPitching.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 		4908F5852C50C58B000B98D5 /* Teams */ = {
 			isa = PBXGroup;
 			children = (
+				49EBD3982C56D11900AB0EF7 /* TeamHitting.swift */,
+				49EBD39C2C56D59A00AB0EF7 /* TeamPitching.swift */,
 				4908F5882C51E6A3000B98D5 /* TeamFieldingAndCatching.swift */,
 			);
 			path = Teams;
@@ -306,12 +312,14 @@
 				498BCB8E2C4FB7D500EDC84E /* ScheduleView.swift in Sources */,
 				498BCB672C4CE92700EDC84E /* CatcherStatsView.swift in Sources */,
 				498BCB7E2C4E7ECD00EDC84E /* TimeFramePicker.swift in Sources */,
+				49EBD3992C56D11900AB0EF7 /* TeamHitting.swift in Sources */,
 				498BCB652C4CE91400EDC84E /* PitcherStatsView-ViewModel.swift in Sources */,
 				498BCB802C4E817300EDC84E /* SeasonRangePicker.swift in Sources */,
 				498BCB6B2C4CEBDE00EDC84E /* HitterStatsView.swift in Sources */,
 				498BCB632C4CE90300EDC84E /* PitcherStatsView.swift in Sources */,
 				498BCB872C4F787C00EDC84E /* TeamIdMapping.swift in Sources */,
 				498BCB532C4C040200EDC84E /* Fielder.swift in Sources */,
+				49EBD39D2C56D59A00AB0EF7 /* TeamPitching.swift in Sources */,
 				498BCB772C4E1E0C00EDC84E /* Enumerations.swift in Sources */,
 				498BCB4B2C4BCECB00EDC84E /* Hitter.swift in Sources */,
 				49DC63102C44950100A5C81A /* MLBStatsApp.swift in Sources */,
