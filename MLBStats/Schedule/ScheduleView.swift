@@ -43,6 +43,7 @@ struct ScheduleView: View {
                                     Text("Venue: \(game.venue.name)")
                                     Text("Date: \(game.gameDate.formattedGameDate())")
                                     Text("Status: \(game.status.statusCode)")
+                                    Text("Game ID: \(game.gamePk)")
                                 }
                             }
                         }

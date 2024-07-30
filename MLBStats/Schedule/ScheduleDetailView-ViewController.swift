@@ -6,6 +6,13 @@ import Foundation
 
 extension ScheduleDetailView {
     @Observable class ViewModel {
+        var awayBatters: [Int] = []
+        var awayStartingPitchers: [Int] = []
+        var awayBullpen: [Int] = []
+        var homeBatters: [Int] = []
+        var homeStartingPitchers: [Int] = []
+        var homeBullpen: [Int] = []
+        
         var teamHStats: [TeamHitting] = []
         var teamPStats: [TeamPitching] = []
         var teamFCStats: [TeamFieldingAndCatching] = []
@@ -13,6 +20,30 @@ extension ScheduleDetailView {
         
         init(game: ScheduleDate.Game) {
             self.game = game
+        }
+        
+        func fetchLineups() async {
+            let urlString = "https://statsapi.mlb.com/api/v1.1/game/\(self.game.gamePk)/feed/live"
+            guard let url = URL(string: urlString) else {
+                print("Invalid game data URL")
+                return
+            }
+            do {
+                let (data, _) = try await URLSession.shared.data(from: url)
+                let decoder = JSONDecoder()
+                let response = try decoder.decode(LiveDataResponse.self, from: data)
+                DispatchQueue.main.async {
+                    self.awayBatters = response.liveData.boxscore.teams.away.batters
+                    self.awayStartingPitchers = response.liveData.boxscore.teams.away.pitchers
+                    self.awayBullpen = response.liveData.boxscore.teams.away.bullpen
+                    
+                    self.homeBatters = response.liveData.boxscore.teams.home.batters
+                    self.homeStartingPitchers = response.liveData.boxscore.teams.home.pitchers
+                    self.homeBullpen = response.liveData.boxscore.teams.home.bullpen
+                }
+            } catch {
+                print("Error fetching or decoding live game data JSON: \(error.localizedDescription)")
+            }
         }
         
         func fetchHittingData(timeFrame: TimeFrame = .SZN) async {

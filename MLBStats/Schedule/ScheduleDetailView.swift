@@ -26,34 +26,39 @@ struct ScheduleDetailView: View {
                 Text("Team Stats")
                     .font(.title2)
                     .padding(.top)
-                ForEach(viewModel.teamPStats, id: \.id) { stat in
-                    VStack(alignment: .leading) {
-                        Text("Team: \(stat.name)")
-                            .font(.headline)
-                        Text("Games Played: \(stat.G)")
-                    }
-                    .padding(.bottom)
-                }
-                ForEach(viewModel.teamFCStats, id: \.id) { stat in
-                    VStack(alignment: .leading) {
-                        Text("Team: \(stat.name)")
-                            .font(.headline)
-                        Text("Ultimate Zone Rating: \(stat.UZR, specifier: "%.2f")")
-                    }
-                    .padding(.bottom)
-                }
                 Divider()
                 ForEach(viewModel.teamHStats, id: \.id) { stat in
                     VStack(alignment: .leading) {
                         Text("Team: \(stat.name)")
                             .font(.headline)
-                        if let csPCT = stat.csPCT {
-                            Text("Caught Stealing PCT: \(csPCT, specifier: "%.2f")")
-                        }
+                        Text("AVG: \(stat.AVG, specifier: "%.2f")")
                     }
                     .padding(.bottom)
                 }
                 Divider()
+                ForEach(viewModel.teamPStats, id: \.id) { stat in
+                    VStack(alignment: .leading) {
+                        Text("Team: \(stat.name)")
+                            .font(.headline)
+                        Text("ERA: \(stat.ERA, specifier: "%.2f")")
+                    }
+                    .padding(.bottom)
+                }
+                Divider()
+                ForEach(viewModel.teamFCStats, id: \.id) { stat in
+                    VStack(alignment: .leading) {
+                        Text("Team: \(stat.name)")
+                            .font(.headline)
+                        Text("UZR: \(stat.UZR, specifier: "%.2f")")
+                    }
+                    .padding(.bottom)
+                }
+                Divider()
+                Text("Home Team Batters")
+                    .font(.headline)
+                ForEach(viewModel.homeBatters, id: \.self) { batterId in
+                    Text("BatterID: \(batterId)")
+                }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         }
@@ -62,6 +67,7 @@ struct ScheduleDetailView: View {
             await viewModel.fetchHittingData()
             await viewModel.fetchPitchingData()
             await viewModel.fetchFieldingAndCatchingData()
+            await viewModel.fetchLineups()
         }
     }
 }
