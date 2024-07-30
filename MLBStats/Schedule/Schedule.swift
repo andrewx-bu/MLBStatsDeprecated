@@ -17,7 +17,7 @@ struct ScheduleDate: Decodable {
         let gameDate: String                        // 2024-07-08T16:35:00Z
         let status: GameStatus
         struct GameStatus: Decodable {
-            let statusCode: String                  // F
+            let detailedState: String               // In Progress
         }
         
         let teams: Teams

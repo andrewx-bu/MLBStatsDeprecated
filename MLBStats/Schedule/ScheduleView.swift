@@ -3,6 +3,7 @@
 //  Created by Andrew Xin on 7/23/24.
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct ScheduleView: View {
     @State private var viewModel = ViewModel()
@@ -17,32 +18,38 @@ struct ScheduleView: View {
                     Section(header: Text("Date: \(scheduleDate.date)")) {
                         ForEach(scheduleDate.games, id: \.gamePk) { game in
                             NavigationLink(destination: ScheduleDetailView(game: game)) {
-                                VStack(alignment: .leading) {
-                                    HStack {
-                                        Text("\(game.teams.away.team.name) @ \(game.teams.home.team.name)")
+                                VStack (alignment: .leading) {
+                                    VStack {
+                                        Text("\(mapTeamIdToAbbreviation(fromId: game.teams.away.team.id)) @ \(mapTeamIdToAbbreviation(fromId: game.teams.home.team.id))")
                                             .font(.headline)
-                                        Spacer()
-                                        Text("\(game.teams.away.score ?? 0)-\(game.teams.home.score ?? 0)")
+                                        Text("\(game.gameDate.formattedGameTime())")
+                                        HStack {
+                                            Spacer()
+                                            VStack {
+                                                WebImage(url: URL(string: "https://www.mlbstatic.com/team-logos/\(game.teams.away.team.id).svg"))
+                                                    .resizable()
+                                                    .frame(width: 40, height: 40)
+                                                Text("\(game.teams.away.leagueRecord.wins)-\(game.teams.away.leagueRecord.losses)")
+                                                    .font(.caption)
+                                            }
+                                            Spacer()
+                                            Text("@")
+                                            Spacer()
+                                            VStack {
+                                                WebImage(url: URL(string: "https://www.mlbstatic.com/team-logos/\(game.teams.home.team.id).svg"))
+                                                    .resizable()
+                                                    .frame(width: 40, height: 40)
+                                                Text("\(game.teams.home.leagueRecord.wins)-\(game.teams.home.leagueRecord.losses)")
+                                                    .font(.caption)
+                                            }
+                                            Spacer()
+                                        }
+                                        Text("\(game.teams.away.score ?? 0) - \(game.teams.home.score ?? 0)")
                                             .font(.headline)
                                     }
-                                    HStack {
-                                        VStack(alignment: .leading) {
-                                            Text("Away Team Record:")
-                                                .font(.subheadline)
-                                            Text("\(game.teams.away.leagueRecord.wins)-\(game.teams.away.leagueRecord.losses)")
-                                                .font(.caption)
-                                        }
-                                        Spacer()
-                                        VStack(alignment: .leading) {
-                                            Text("Home Team Record:")
-                                                .font(.subheadline)
-                                            Text("\(game.teams.home.leagueRecord.wins)-\(game.teams.home.leagueRecord.losses)")
-                                                .font(.caption)
-                                        }
-                                    }
+                                    .padding(.bottom)
                                     Text("Venue: \(game.venue.name)")
-                                    Text("Date: \(game.gameDate.formattedGameDate())")
-                                    Text("Status: \(game.status.statusCode)")
+                                    Text("Status: \(game.status.detailedState)")
                                     Text("Game ID: \(game.gamePk)")
                                 }
                             }

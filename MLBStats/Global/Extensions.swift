@@ -15,11 +15,11 @@ extension String {
     }
     
     // Formats a date like: "2024-07-08T16:35:00Z
-    func formattedGameDate() -> String {
+    func formattedGameTime() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         if let date = dateFormatter.date(from: self) {
-            dateFormatter.dateFormat = "MMMM d, yyyy h:mm a"
+            dateFormatter.dateFormat = "h:mm a"
             return dateFormatter.string(from: date)
         }
         return self

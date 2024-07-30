@@ -3,12 +3,23 @@
 //  Created by Andrew Xin on 7/14/24.
 
 import SwiftUI
+import SDWebImageSVGCoder
 
 @main
 struct MLBStatsApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ScheduleView()
+        init() {
+            setUpDependencies() // Initialize SVGCoder
         }
+        var body: some Scene {
+            WindowGroup {
+                ScheduleView()
+            }
+        }
+}
+
+// Initialize SVGCoder
+private extension MLBStatsApp {
+    func setUpDependencies() {
+        SDImageCodersManager.shared.addCoder(SDImageSVGCoder.shared)
     }
 }
