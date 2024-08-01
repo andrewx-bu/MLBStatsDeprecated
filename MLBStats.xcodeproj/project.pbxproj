@@ -13,6 +13,7 @@
 		4912D4CF2C5961600078BC21 /* LiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4912D4CE2C5961600078BC21 /* LiveData.swift */; };
 		4912D4D22C596B3E0078BC21 /* SDWebImageSVGCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 4912D4D12C596B3E0078BC21 /* SDWebImageSVGCoder */; };
 		4912D4D52C596B7C0078BC21 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4912D4D42C596B7C0078BC21 /* SDWebImageSwiftUI */; };
+		4930723E2C5C51590057FF93 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4930723D2C5C51590057FF93 /* TabBar.swift */; };
 		498BCB4B2C4BCECB00EDC84E /* Hitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498BCB4A2C4BCECB00EDC84E /* Hitter.swift */; };
 		498BCB4D2C4BCF3600EDC84E /* Pitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498BCB4C2C4BCF3600EDC84E /* Pitcher.swift */; };
 		498BCB512C4BD6A300EDC84E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498BCB502C4BD6A300EDC84E /* Extensions.swift */; };
@@ -50,6 +51,7 @@
 		4908F58A2C52956B000B98D5 /* ScheduleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailView.swift; sourceTree = "<group>"; };
 		4908F58C2C529588000B98D5 /* ScheduleDetailView-ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScheduleDetailView-ViewController.swift"; sourceTree = "<group>"; };
 		4912D4CE2C5961600078BC21 /* LiveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveData.swift; sourceTree = "<group>"; };
+		4930723D2C5C51590057FF93 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		498BCB4A2C4BCECB00EDC84E /* Hitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hitter.swift; sourceTree = "<group>"; };
 		498BCB4C2C4BCF3600EDC84E /* Pitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pitcher.swift; sourceTree = "<group>"; };
 		498BCB502C4BD6A300EDC84E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				49DC630F2C44950100A5C81A /* MLBStatsApp.swift */,
+				4930723D2C5C51590057FF93 /* TabBar.swift */,
 				49DC63112C44950100A5C81A /* ContentView.swift */,
 				49DC631D2C44984200A5C81A /* ContentView-ViewModel.swift */,
 				498BCB7A2C4E7DDF00EDC84E /* Stats */,
@@ -341,6 +344,7 @@
 				49DC63102C44950100A5C81A /* MLBStatsApp.swift in Sources */,
 				498BCB612C4CE83400EDC84E /* HitterStatsView-ViewModel.swift in Sources */,
 				498BCB4D2C4BCF3600EDC84E /* Pitcher.swift in Sources */,
+				4930723E2C5C51590057FF93 /* TabBar.swift in Sources */,
 				498BCB902C4FB7E000EDC84E /* Schedule.swift in Sources */,
 				498BCB5B2C4CE6C500EDC84E /* FielderStatsView.swift in Sources */,
 			);
