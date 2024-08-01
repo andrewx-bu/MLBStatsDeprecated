@@ -1,9 +1,6 @@
-//
 //  ScheduleDetailView.swift
 //  MLBStats
-//
 //  Created by Andrew Xin on 7/25/24.
-//
 
 import SwiftUI
 

@@ -1,11 +1,11 @@
-//  ContentView-ViewModel.swift
+//  StatsView-ViewModel.swift
 //  MLBStats
 //  Created by Andrew Xin on 7/14/24.
 
 import Foundation
 import SwiftUI
 
-extension ContentView {
+extension StatsView {
     @Observable class ViewModel {
         var currentView: CurrentView = .Hitters
         

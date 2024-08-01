@@ -1,10 +1,10 @@
-//  ContentView.swift
+//  StatsView.swift
 //  MLBStats
 //  Created by Andrew Xin on 7/14/24.
 
 import SwiftUI
 
-struct ContentView: View {
+struct StatsView: View {
     @State private var viewModel = ViewModel()
     
     var body: some View {
@@ -33,5 +33,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    StatsView()
 }

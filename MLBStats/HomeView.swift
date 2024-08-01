@@ -1,17 +1,17 @@
-//  TabBar.swift
+//  HomeView.swift
 //  MLBStats
 //  Created by Andrew Xin on 8/1/24.
 
 import SwiftUI
 
-struct TabBar: View {
+struct HomeView: View {
     @State var index = 0
     
     var body: some View {
         VStack {
             ZStack {
                 if self.index == 0 {
-                    ContentView()
+                    StatsView()
                 } else if self.index == 1  {
                     ScheduleView()
                 } else if self.index == 2  {
@@ -21,12 +21,12 @@ struct TabBar: View {
                 }
             }
             .padding(.bottom, -35)
-            CustomTabs(index: self.$index)
+            CustomTabView(index: self.$index)
         }
     }
 }
 
-struct CustomTabs: View {
+struct CustomTabView: View {
     @Binding var index: Int
     
     var body: some View {
@@ -83,5 +83,5 @@ struct CustomTabs: View {
 }
 
 #Preview {
-    TabBar()
+    HomeView()
 }
