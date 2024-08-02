@@ -5,7 +5,7 @@
 import SwiftUI
 
 struct PitcherStatsView: View {
-    @State private var viewModel = ViewModel()
+    @State private var viewModel = StatsViewModel()
     
     var body: some View {
         VStack {

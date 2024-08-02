@@ -1,11 +1,11 @@
-//  HitterStatsView.swift
-//  MLBStats
-//  Created by Andrew Xin on 7/21/24.
+// HitterStatsView.swift
+// MLBStats
+// Created by Andrew Xin on 7/21/24.
 
 import SwiftUI
 
 struct HitterStatsView: View {
-    @State private var viewModel = ViewModel()
+    @State private var viewModel = StatsViewModel()
     
     var body: some View {
         VStack {
