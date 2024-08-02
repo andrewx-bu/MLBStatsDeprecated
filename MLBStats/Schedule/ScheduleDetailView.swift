@@ -54,7 +54,16 @@ struct ScheduleDetailView: View {
                 Text("Home Team Batters")
                     .font(.headline)
                 ForEach(viewModel.homeBatters, id: \.self) { batterId in
-                    Text("BatterID: \(batterId)")
+                    if let hitter = viewModel.homeBatterList.first(where: { $0.id == batterId }) {
+                        Text("Batter: \(hitter.name)")
+                            .padding(.bottom)
+                    } else {
+                        Text("BatterID: \(batterId) (not found)")
+                            .padding(.bottom)
+                    }
+                }
+                ForEach(viewModel.homeBatterList) { batter in
+                    Text(batter.name)
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -65,6 +74,7 @@ struct ScheduleDetailView: View {
             await viewModel.fetchPitchingData()
             await viewModel.fetchFieldingAndCatchingData()
             await viewModel.fetchLineups()
+            await viewModel.fetchHomeHitters()
         }
     }
 }

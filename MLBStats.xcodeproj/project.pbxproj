@@ -145,6 +145,8 @@
 		498BCB7A2C4E7DDF00EDC84E /* Stats */ = {
 			isa = PBXGroup;
 			children = (
+				493072412C5C56AF0057FF93 /* StatsView.swift */,
+				493072432C5C56BA0057FF93 /* StatsView-ViewModel.swift */,
 				498BCB812C4E81A700EDC84E /* Custom Views */,
 				4930724B2C5C59810057FF93 /* Hitters & Pitchers */,
 				4930724E2C5C5C770057FF93 /* Fielders & Catchers */,
@@ -195,8 +197,6 @@
 			children = (
 				49DC630F2C44950100A5C81A /* MLBStatsApp.swift */,
 				493072452C5C572B0057FF93 /* HomeView.swift */,
-				493072412C5C56AF0057FF93 /* StatsView.swift */,
-				493072432C5C56BA0057FF93 /* StatsView-ViewModel.swift */,
 				498BCB7A2C4E7DDF00EDC84E /* Stats */,
 				4908F5822C50BFC6000B98D5 /* Schedule */,
 				498BCB8A2C4FB75B00EDC84E /* Global */,

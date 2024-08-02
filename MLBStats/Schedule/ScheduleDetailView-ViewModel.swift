@@ -6,6 +6,9 @@ import Foundation
 
 extension ScheduleDetailView {
     @Observable class ViewModel {
+        var awayBatterList: [Hitter] = []
+        var homeBatterList: [Hitter] = []
+        
         var awayBatters: [Int] = []
         var awayStartingPitchers: [Int] = []
         var awayBullpen: [Int] = []
@@ -33,11 +36,11 @@ extension ScheduleDetailView {
                 let decoder = JSONDecoder()
                 let response = try decoder.decode(LiveDataResponse.self, from: data)
                 DispatchQueue.main.async {
-                    self.awayBatters = response.liveData.boxscore.teams.away.batters
+                    self.awayBatters = response.liveData.boxscore.teams.away.battingOrder
                     self.awayStartingPitchers = response.liveData.boxscore.teams.away.pitchers
                     self.awayBullpen = response.liveData.boxscore.teams.away.bullpen
                     
-                    self.homeBatters = response.liveData.boxscore.teams.home.batters
+                    self.homeBatters = response.liveData.boxscore.teams.home.battingOrder
                     self.homeStartingPitchers = response.liveData.boxscore.teams.home.pitchers
                     self.homeBullpen = response.liveData.boxscore.teams.home.bullpen
                 }
@@ -70,6 +73,42 @@ extension ScheduleDetailView {
             } catch {
                 print("Error fetching or decoding team hitting JSON: \(error.localizedDescription)")
             }
+        }
+        
+        func fetchHomeHitters() async {
+            guard let homeTeamId = mapTeamId(fromStatsAPI: game.teams.home.team.id) else {
+                print("Invalid team ID mapping")
+                return
+            }
+            await self.homeBatterList = fetchHitter(for: homeTeamId)
+        }
+        
+        func fetchAwayHitters() async {
+            guard let awayTeamId = mapTeamId(fromStatsAPI: game.teams.away.team.id) else {
+                print("Invalid team ID mapping")
+                return
+            }
+            await self.awayBatterList = fetchHitter(for: awayTeamId)
+        }
+        
+        func fetchHitter(min PA: Int = 50, timeFrame: TimeFrame = .SZN, currentSeason: Int = Int(Calendar.current.component(.year, from: Date())), for teamID: Int? = nil) async -> [Hitter] {
+            var urlString = "https://www.fangraphs.com/api/leaders/major-league/data?pos=all&stats=bat&lg=all&qual=\(PA)&pageitems=999&rost=1&season=\(currentSeason)&month=\(timeFrame.rawValue)"
+            if let teamID = teamID {
+                urlString += "&team=\(teamID)"
+            }
+            guard let url = URL(string: urlString) else {
+                print("Invalid hitters URL")
+                return []
+            }
+            do {
+                let (data, _) = try await URLSession.shared.data(from: url)
+                let decoder = JSONDecoder()
+                let response = try decoder.decode(HittersResponse.self, from: data)
+                return response.data
+            } catch {
+                print("Error fetching or decoding hitters JSON: \(error.localizedDescription)")
+            }
+            return []
         }
         
         func fetchPitchingData(timeFrame: TimeFrame = .SZN) async {
