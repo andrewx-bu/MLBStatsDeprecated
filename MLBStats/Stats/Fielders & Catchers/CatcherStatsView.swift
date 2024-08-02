@@ -5,12 +5,12 @@
 import SwiftUI
 
 struct CatcherStatsView: View {
-    @State private var viewModel = ViewModel()
+    @State private var viewModel = FCStatsViewModel()
     
     var body: some View {
         VStack {
             SeasonRangePicker(selectedSeasonRange: $viewModel.selectedSeasonRange)
-            MinimumSelectionPicker(title: "Minimum IP", items: viewModel.IPs, selection: $viewModel.minimumIP)
+            MinimumSelectionPicker(title: "Minimum IP", items: viewModel.CIPs, selection: $viewModel.minimumCIP)
             NumberOfResultsView(title: "Catchers", count: viewModel.catchers.count)
             if viewModel.isLoading {
                 ProgressView("Updating...")

@@ -4,7 +4,7 @@
 
 import Foundation
 
-@Observable class StatsViewModel {
+@Observable class HPStatsViewModel {
     var hitters: [Hitter] = []
     var pitchers: [Pitcher] = []
     var selectedTimeFrame: TimeFrame = .SZN {
@@ -33,53 +33,49 @@ import Foundation
     }
     var isLoading = false
     
-    enum PlayerType {
-        case hitter
-        case pitcher
-    }
-    
-    
-    func fetchPlayers(type: PlayerType, min: Int, timeFrame: TimeFrame = .SZN, currentSeason: Int = Int(Calendar.current.component(.year, from: Date())), for teamID: Int? = nil) async {
+    func fetchHitters(min PA: Int = 50, timeFrame: TimeFrame = .SZN, currentSeason: Int = Int(Calendar.current.component(.year, from: Date())), for teamID: Int? = nil) async {
         isLoading = true
         defer { isLoading = false }
-        
-        // Determine URL and Decoding Type
-        let (stats, decodeType): (String, Decodable.Type)
-        switch type {
-        case .hitter:
-            stats = "bat"
-            decodeType = HittersResponse.self
-        case .pitcher:
-            stats = "pit"
-            decodeType = PitchersResponse.self
-        }
-        
-        // Construct URL
-        var urlString = "https://www.fangraphs.com/api/leaders/major-league/data?pos=all&stats=\(stats)&lg=all&qual=\(min)&pageitems=999&rost=1&season=\(currentSeason)&month=\(timeFrame.rawValue)"
+        var urlString = "https://www.fangraphs.com/api/leaders/major-league/data?pos=all&stats=bat&lg=all&qual=\(PA)&pageitems=999&rost=1&season=\(currentSeason)&month=\(timeFrame.rawValue)"
         if let teamID = teamID {
             urlString += "&team=\(teamID)"
         }
         guard let url = URL(string: urlString) else {
-            print("Invalid players URL")
+            print("Invalid hitters URL")
             return
         }
-        
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
             let decoder = JSONDecoder()
-            let response = try decoder.decode(decodeType, from: data)
-            
+            let response = try decoder.decode(HittersResponse.self, from: data)
             DispatchQueue.main.async {
-                switch type {
-                case .hitter:
-                    self.hitters = (response as? HittersResponse)?.data ?? []
-                case .pitcher:
-                    self.pitchers = (response as? PitchersResponse)?.data ?? []
-                }
+                self.hitters = response.data
             }
-            
         } catch {
-            print("Error fetching or decoding players JSON: \(error.localizedDescription)")
+            print("Error fetching or decoding hitters JSON: \(error.localizedDescription)")
+        }
+    }
+    
+    func fetchPitchers(min IP: Int = 25, timeFrame: TimeFrame = .SZN, currentSeason: Int = Int(Calendar.current.component(.year, from: Date())), for teamID: Int? = nil) async {
+        isLoading = true
+        defer { isLoading = false }
+        var urlString = "https://www.fangraphs.com/api/leaders/major-league/data?pos=all&stats=pit&lg=all&qual=\(IP)&pageitems=999&rost=1&season=\(currentSeason)&month=\(timeFrame.rawValue)"
+        if let teamID = teamID {
+            urlString += "&team=\(teamID)"
+        }
+        guard let url = URL(string: urlString) else {
+            print("Invalid pitchers URL")
+            return
+        }
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            let decoder = JSONDecoder()
+            let response = try decoder.decode(PitchersResponse.self, from: data)
+            DispatchQueue.main.async {
+                self.pitchers = response.data
+            }
+        } catch {
+            print("Error fetching or decoding pitchers JSON: \(error.localizedDescription)")
         }
     }
 }

@@ -18,16 +18,15 @@
 		493072462C5C572B0057FF93 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493072452C5C572B0057FF93 /* HomeView.swift */; };
 		493072482C5C580C0057FF93 /* ScheduleDetailView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493072472C5C580C0057FF93 /* ScheduleDetailView-ViewModel.swift */; };
 		4930724A2C5C593F0057FF93 /* HPStats-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493072492C5C593F0057FF93 /* HPStats-ViewModel.swift */; };
+		4930724D2C5C5BFB0057FF93 /* FCStats-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4930724C2C5C5BFB0057FF93 /* FCStats-ViewModel.swift */; };
 		498BCB4B2C4BCECB00EDC84E /* Hitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498BCB4A2C4BCECB00EDC84E /* Hitter.swift */; };
 		498BCB4D2C4BCF3600EDC84E /* Pitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498BCB4C2C4BCF3600EDC84E /* Pitcher.swift */; };
 		498BCB512C4BD6A300EDC84E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498BCB502C4BD6A300EDC84E /* Extensions.swift */; };
 		498BCB532C4C040200EDC84E /* Fielder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498BCB522C4C040200EDC84E /* Fielder.swift */; };
 		498BCB552C4CAE7700EDC84E /* Catcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498BCB542C4CAE7700EDC84E /* Catcher.swift */; };
 		498BCB5B2C4CE6C500EDC84E /* FielderStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498BCB5A2C4CE6C500EDC84E /* FielderStatsView.swift */; };
-		498BCB5D2C4CE72A00EDC84E /* FielderStatsView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498BCB5C2C4CE72A00EDC84E /* FielderStatsView-ViewModel.swift */; };
 		498BCB632C4CE90300EDC84E /* PitcherStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498BCB622C4CE90300EDC84E /* PitcherStatsView.swift */; };
 		498BCB672C4CE92700EDC84E /* CatcherStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498BCB662C4CE92700EDC84E /* CatcherStatsView.swift */; };
-		498BCB692C4CE93200EDC84E /* CatcherStatsView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498BCB682C4CE93200EDC84E /* CatcherStatsView-ViewModel.swift */; };
 		498BCB6B2C4CEBDE00EDC84E /* HitterStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498BCB6A2C4CEBDE00EDC84E /* HitterStatsView.swift */; };
 		498BCB772C4E1E0C00EDC84E /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498BCB762C4E1E0C00EDC84E /* Enumerations.swift */; };
 		498BCB7E2C4E7ECD00EDC84E /* TimeFramePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498BCB7D2C4E7ECC00EDC84E /* TimeFramePicker.swift */; };
@@ -55,16 +54,15 @@
 		493072452C5C572B0057FF93 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		493072472C5C580C0057FF93 /* ScheduleDetailView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScheduleDetailView-ViewModel.swift"; sourceTree = "<group>"; };
 		493072492C5C593F0057FF93 /* HPStats-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HPStats-ViewModel.swift"; sourceTree = "<group>"; };
+		4930724C2C5C5BFB0057FF93 /* FCStats-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FCStats-ViewModel.swift"; sourceTree = "<group>"; };
 		498BCB4A2C4BCECB00EDC84E /* Hitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hitter.swift; sourceTree = "<group>"; };
 		498BCB4C2C4BCF3600EDC84E /* Pitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pitcher.swift; sourceTree = "<group>"; };
 		498BCB502C4BD6A300EDC84E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		498BCB522C4C040200EDC84E /* Fielder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fielder.swift; sourceTree = "<group>"; };
 		498BCB542C4CAE7700EDC84E /* Catcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catcher.swift; sourceTree = "<group>"; };
 		498BCB5A2C4CE6C500EDC84E /* FielderStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FielderStatsView.swift; sourceTree = "<group>"; };
-		498BCB5C2C4CE72A00EDC84E /* FielderStatsView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FielderStatsView-ViewModel.swift"; sourceTree = "<group>"; };
 		498BCB622C4CE90300EDC84E /* PitcherStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitcherStatsView.swift; sourceTree = "<group>"; };
 		498BCB662C4CE92700EDC84E /* CatcherStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatcherStatsView.swift; sourceTree = "<group>"; };
-		498BCB682C4CE93200EDC84E /* CatcherStatsView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CatcherStatsView-ViewModel.swift"; sourceTree = "<group>"; };
 		498BCB6A2C4CEBDE00EDC84E /* HitterStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitterStatsView.swift; sourceTree = "<group>"; };
 		498BCB762C4E1E0C00EDC84E /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		498BCB7D2C4E7ECC00EDC84E /* TimeFramePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFramePicker.swift; sourceTree = "<group>"; };
@@ -132,24 +130,16 @@
 			path = "Hitters & Pitchers";
 			sourceTree = "<group>";
 		};
-		498BCB722C4CF70A00EDC84E /* Fielder */ = {
+		4930724E2C5C5C770057FF93 /* Fielders & Catchers */ = {
 			isa = PBXGroup;
 			children = (
 				498BCB522C4C040200EDC84E /* Fielder.swift */,
 				498BCB5A2C4CE6C500EDC84E /* FielderStatsView.swift */,
-				498BCB5C2C4CE72A00EDC84E /* FielderStatsView-ViewModel.swift */,
-			);
-			path = Fielder;
-			sourceTree = "<group>";
-		};
-		498BCB732C4CF72300EDC84E /* Catcher */ = {
-			isa = PBXGroup;
-			children = (
 				498BCB542C4CAE7700EDC84E /* Catcher.swift */,
 				498BCB662C4CE92700EDC84E /* CatcherStatsView.swift */,
-				498BCB682C4CE93200EDC84E /* CatcherStatsView-ViewModel.swift */,
+				4930724C2C5C5BFB0057FF93 /* FCStats-ViewModel.swift */,
 			);
-			path = Catcher;
+			path = "Fielders & Catchers";
 			sourceTree = "<group>";
 		};
 		498BCB7A2C4E7DDF00EDC84E /* Stats */ = {
@@ -157,8 +147,7 @@
 			children = (
 				498BCB812C4E81A700EDC84E /* Custom Views */,
 				4930724B2C5C59810057FF93 /* Hitters & Pitchers */,
-				498BCB722C4CF70A00EDC84E /* Fielder */,
-				498BCB732C4CF72300EDC84E /* Catcher */,
+				4930724E2C5C5C770057FF93 /* Fielders & Catchers */,
 			);
 			path = Stats;
 			sourceTree = "<group>";
@@ -303,7 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				498BCB692C4CE93200EDC84E /* CatcherStatsView-ViewModel.swift in Sources */,
+				4930724D2C5C5BFB0057FF93 /* FCStats-ViewModel.swift in Sources */,
 				493072402C5C56750057FF93 /* StatsManager.swift in Sources */,
 				498BCB942C4FD22100EDC84E /* ScheduleView-ViewModel.swift in Sources */,
 				493072482C5C580C0057FF93 /* ScheduleDetailView-ViewModel.swift in Sources */,
@@ -312,7 +301,6 @@
 				498BCB832C4E83E400EDC84E /* MinimumSelectionPicker.swift in Sources */,
 				4908F58B2C52956B000B98D5 /* ScheduleDetailView.swift in Sources */,
 				498BCB852C4E856E00EDC84E /* NumberOfResultsView.swift in Sources */,
-				498BCB5D2C4CE72A00EDC84E /* FielderStatsView-ViewModel.swift in Sources */,
 				4912D4CF2C5961600078BC21 /* LiveData.swift in Sources */,
 				498BCB552C4CAE7700EDC84E /* Catcher.swift in Sources */,
 				493072422C5C56AF0057FF93 /* StatsView.swift in Sources */,

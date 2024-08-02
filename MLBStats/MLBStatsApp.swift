@@ -12,7 +12,7 @@ struct MLBStatsApp: App {
         }
         var body: some Scene {
             WindowGroup {
-                ScheduleView()
+                HomeView()
             }
         }
 }

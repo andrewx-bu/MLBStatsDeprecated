@@ -5,7 +5,7 @@
 import SwiftUI
 
 struct FielderStatsView: View {
-    @State private var viewModel = ViewModel()
+    @State private var viewModel = FCStatsViewModel()
     
     var body: some View {
         VStack {
